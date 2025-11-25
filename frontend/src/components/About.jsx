@@ -1,6 +1,8 @@
 import React from 'react';
 import { aboutData } from '../mock';
 import { Shield, Target, CheckCircle } from 'lucide-react';
+import { Button } from './ui/button';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   const advantages = [
