@@ -88,6 +88,37 @@ export const aboutData = {
   mission: "Our mission is to invest in transformative ideas, strategic ventures, and high impact projects that drive innovation and growth across industries. By combining global intelligence, disciplined execution, and integrity, Alfa Global Group empowers clients, partners, and communities to build opportunities, legacies, and futures that last."
 };
 
+export const teamData = [
+  {
+    id: 1,
+    name: "James Anderson",
+    position: "Chief Executive Officer",
+    description: "25+ years in global investment banking and wealth management.",
+    linkedin: "#"
+  },
+  {
+    id: 2,
+    name: "Emma Thompson",
+    position: "Chief Investment Officer",
+    description: "Former hedge fund manager with expertise in alternative investments.",
+    linkedin: "#"
+  },
+  {
+    id: 3,
+    name: "Robert Martinez",
+    position: "Head of Strategic Ventures",
+    description: "Serial entrepreneur with successful exits in fintech and infrastructure.",
+    linkedin: "#"
+  },
+  {
+    id: 4,
+    name: "Lisa Zhang",
+    position: "Global Partnerships Director",
+    description: "International business strategist specializing in cross-border transactions.",
+    linkedin: "#"
+  }
+];
+
 export const subsidiaries = [
   {
     id: 1,
