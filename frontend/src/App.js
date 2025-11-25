@@ -5,8 +5,13 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
-import Solutions from './pages/Solutions';
-import InsightsPage from './pages/InsightsPage';
+import ServicesPage from './pages/ServicesPage';
+import Strategy from './pages/Strategy';
+import GlobalAccess from './pages/GlobalAccess';
+import Companies from './pages/Companies';
+import CompanyDetail from './pages/CompanyDetail';
+import BusinessNews from './pages/BusinessNews';
+import FAQPage from './pages/FAQPage';
 import Contact from './pages/Contact';
 
 function App() {
@@ -23,8 +28,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/solutions" element={<Solutions />} />
-            <Route path="/insights" element={<InsightsPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/strategy" element={<Strategy />} />
+            <Route path="/global-access" element={<GlobalAccess />} />
+            <Route path="/companies" element={<Companies />} />
+            <Route path="/companies/:companySlug" element={<CompanyDetail />} />
+            <Route path="/business-news" element={<BusinessNews />} />
+            <Route path="/faq" element={<FAQPage />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
