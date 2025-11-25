@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
-import { ArrowRight, ChevronDown, Play } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { heroData } from '../mock';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -36,42 +35,48 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-8 py-32">
-        <div className="max-w-5xl mx-auto">
-          {/* Certified Badge */}
-          <div
-            className={`inline-flex items-center space-x-3 px-5 py-2.5 rounded-full bg-white/5 backdrop-blur-md border border-[#D4AF37]/30 mb-8 transition-all duration-1000 transform ${
-              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`}
-          >
-            <div className="w-2 h-2 bg-[#D4AF37] rounded-full animate-pulse" />
-            <span className="text-[#D4AF37] text-sm font-medium tracking-wide">Certified Financial Experts</span>
-          </div>
-
-          {/* Main Heading */}
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Main Heading - Exact from reference website */}
           <h1
-            className={`text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight transition-all duration-1000 delay-200 transform ${
+            className={`text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight transition-all duration-1000 delay-200 transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
-            Smart Wealth.
-            <br />
-            <span className="text-[#D4AF37]">
-              Secure Future.
-            </span>
+            {heroData.title}
           </h1>
 
-          {/* Subtitle */}
+          {/* Logo placeholder - matching reference website */}
+          <div className={`mb-8 transition-all duration-1000 delay-300 transform ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`}>
+            <div className="inline-block w-24 h-24 bg-white/10 backdrop-blur-sm rounded-2xl p-4">
+              <div className="w-full h-full bg-gradient-to-br from-[#D4AF37] to-[#F4C430] rounded-xl flex items-center justify-center">
+                <span className="text-white font-bold text-4xl">A</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Subtitle - Exact from reference website */}
           <p
-            className={`text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed max-w-3xl transition-all duration-1000 delay-300 transform ${
+            className={`text-xl md:text-2xl text-gray-300 mb-6 leading-relaxed max-w-4xl mx-auto transition-all duration-1000 delay-400 transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
-            Trusted financial strategies to help you grow, protect, and optimize your wealth across industries and generations.
+            {heroData.subtitle}
           </p>
 
-          {/* CTA Buttons */}
+          {/* Description - Exact from reference website */}
+          <p
+            className={`text-base md:text-lg text-gray-400 mb-10 leading-relaxed max-w-3xl mx-auto transition-all duration-1000 delay-500 transform ${
+              isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`}
+          >
+            {heroData.description}
+          </p>
+
+          {/* CTA Button - Exact text from reference website */}
           <div
-            className={`flex flex-col sm:flex-row items-start sm:items-center gap-4 transition-all duration-1000 delay-500 transform ${
+            className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-1000 delay-600 transform ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
@@ -80,18 +85,10 @@ const Hero = () => {
               className="bg-[#D4AF37] text-[#0A1628] font-semibold hover:bg-[#F4C430] transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#D4AF37]/50 text-lg px-8 py-6"
               asChild
             >
-              <Link to="/contact">
-                Schedule a Free Consultation
+              <Link to={heroData.ctaLink}>
+                {heroData.ctaText}
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-white/30 text-white backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-lg px-8 py-6"
-              asChild
-            >
-              <Link to="/solutions">Explore Services</Link>
             </Button>
           </div>
         </div>

@@ -1,10 +1,10 @@
-// Mock data for Alfa Global Group website
+// Mock data for Alfa Global Group website - Exact content from reference website
 
 export const heroData = {
-  title: "Smart Wealth. Secure Future.",
-  subtitle: "Trusted financial strategies to help you grow, protect, and optimize your wealth across industries and generations.",
-  description: "We invest in transformative ideas, strategic ventures, and high impact projects that shape the future of capital, business, and society.",
-  ctaText: "Schedule a Free Consultation",
+  title: "Beyond Capital. Building Futures.",
+  subtitle: "Alfa Global Group is a diversified global organization committed to creating enduring value across industries and generations.",
+  description: "We invest in transformative ideas, strategic ventures, and high impact projects that shape the future of capital, business, and society. By combining global intelligence, disciplined execution, and visionary thinking, we go beyond wealth to build legacies and opportunities that last.",
+  ctaText: "Explore Our World",
   ctaLink: "/contact"
 };
 
@@ -18,26 +18,26 @@ export const statisticsData = [
 export const servicesData = [
   {
     id: 1,
-    title: "Investment Management",
-    description: "Grow and protect your portfolio with customized strategies backed by expert financial insight and market analysis.",
+    title: "Alternative Investments & Funds",
+    description: "Structured investment platforms, AIFs, hedge-style LLPs, and specialized capital strategies.",
     icon: "TrendingUp"
   },
   {
     id: 2,
-    title: "Wealth Planning",
-    description: "Build a comprehensive financial roadmap tailored to your goals, lifestyle, and long-term aspirations.",
+    title: "Strategic Ventures & Holdings",
+    description: "Proprietary investments in companies, joint ventures, and scalable businesses across sectors.",
     icon: "Briefcase"
   },
   {
     id: 3,
-    title: "Retirement Planning",
-    description: "Prepare for a secure and confident retirement with smart, structured planning and income strategies.",
+    title: "High-Impact Projects",
+    description: "Initiating and funding projects in industries such as finance, infrastructure, shipping, manufacturing, and technology.",
     icon: "Rocket"
   },
   {
     id: 4,
-    title: "Tax Optimization",
-    description: "Keep more of what you earn with proactive, personalized strategies designed to reduce your tax liabilities.",
+    title: "Global Partnerships & Advisory",
+    description: "Cross-border alliances, family office structures, and institutional collaborations that unlock global opportunities.",
     icon: "Users"
   }
 ];
@@ -46,34 +46,51 @@ export const valuesData = [
   {
     id: 1,
     number: "01",
-    title: "Schedule Your Free Consultation",
-    description: "Book a no-obligation call with one of our financial experts to discuss your goals and current financial landscape.",
+    title: "Blending Insight & Foresight",
+    description: "Leveraging advanced analytics, AI-driven research, and global intelligence.",
     icon: "Brain"
   },
   {
     id: 2,
     number: "02",
-    title: "Get a Personalized Strategy",
-    description: "We'll create a tailored financial plan built around your needs—whether it's growing wealth, planning for retirement, or optimizing taxes.",
+    title: "Diversified Strength",
+    description: "Balancing financial innovation with entrepreneurial risk-taking and sector diversification.",
     icon: "Shield"
   },
   {
     id: 3,
     number: "03",
-    title: "Start Building With Confidence",
-    description: "Partner with Alfa Global to implement your strategy, track your progress, and make informed decisions with ongoing expert support.",
+    title: "Integrity & Alignment",
+    description: "Ensuring transparency, compliance, and long-term alignment of interests.",
     icon: "Award"
+  },
+  {
+    id: 4,
+    number: "04",
+    title: "Vision in Action",
+    description: "Turning bold ideas into transformative ventures through disciplined execution and global reach.",
+    icon: "Target"
   }
 ];
 
 export const aboutData = {
   groupOverview: {
+    heading: "Group Overview",
     title: "Who We Are",
     description: "Alfa Global Group is a diversified global organization driven by vision, innovation, and impact. We invest in ideas, businesses, and projects that shape industries, empower legacies, and create sustainable value across generations. Our strength lies in combining capital markets expertise with entrepreneurial execution to build opportunities that go beyond conventional boundaries."
   },
   purpose: {
+    heading: "Our Purpose",
     title: "Why We Exist",
     description: "We believe wealth is not just financial capital, it is the ability to create, transform, and leave behind something meaningful. Alfa Global Group exists to channel resources, knowledge, and strategy into ventures that redefine growth, spark innovation, and contribute to a better future for our clients, partners, and communities."
+  },
+  whatWeDo: {
+    heading: "What We Do",
+    title: "Alfa Global Group operates across a wide spectrum of verticals:"
+  },
+  howWeDeliver: {
+    heading: "How We Deliver Value",
+    title: "We Achieve This By"
   }
 };
 
@@ -160,39 +177,36 @@ export const insightsData = [
 ];
 
 export const contactData = {
-  address: "No. 6/8, Second Floor, Lakshmi Nagar, 10th Street, Nanganallur, Chennai - 600 061",
+  heading: "Contact Us",
+  subheading: "Reach out to us",
+  title: "Get in Touch",
+  description: "Contact us today to schedule a consultation with one of our experienced wealth managers. We look forward to understanding your financial aspirations and charting a course towards lasting prosperity together.",
+  address: "No. 6/8, Second Floor, Lakshmi Nagar, 10th Street, Nanganallur, Chennai - 600 061.",
   phone: "+91 44-2224-2929",
   phone2: "+91 73580-65999",
   email: "contact@alfaglobalwealth.com",
-  hours: "Monday - Friday: 9:00 AM - 6:00 PM IST"
+  hours: "Monday - Friday: 9:00 AM - 6:00 PM IST",
+  formHeading: "Let's Talk About Your Next Project"
 };
 
 export const navigationLinks = [
   { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Solutions", path: "/solutions" },
-  { label: "Insights", path: "/insights" },
   { label: "Contact", path: "/contact" }
 ];
 
 export const footerLinks = {
   solutions: [
-    { label: "Investment Management", path: "/solutions#investment" },
-    { label: "Wealth Planning", path: "/solutions#wealth" },
-    { label: "Retirement Planning", path: "/solutions#retirement" },
-    { label: "Tax Optimization", path: "/solutions#tax" }
+    { label: "Alternative Investments & Funds", path: "/#services" },
+    { label: "Strategic Ventures & Holdings", path: "/#services" },
+    { label: "High-Impact Projects", path: "/#services" },
+    { label: "Global Partnerships & Advisory", path: "/#services" }
   ],
   company: [
-    { label: "About Us", path: "/about" },
-    { label: "Our Team", path: "/about#team" },
-    { label: "Careers", path: "#" },
+    { label: "About Us", path: "/#about" },
     { label: "Contact", path: "/contact" }
   ],
   resources: [
-    { label: "Insights", path: "/insights" },
-    { label: "Market Updates", path: "/insights" },
-    { label: "Investment Calculator", path: "/#calculator" },
-    { label: "FAQ", path: "#" }
+    { label: "Insights", path: "/#insights" }
   ]
 };
 
