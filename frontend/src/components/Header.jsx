@@ -38,7 +38,7 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Only Home and Contact from reference website */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navigationLinks.map((link) => (
               <Link
@@ -60,7 +60,7 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
             <Button
               variant="ghost"
@@ -69,12 +69,6 @@ const Header = () => {
             >
               <LogIn className="w-4 h-4 mr-2" />
               Client Portal
-            </Button>
-            <Button
-              className="bg-gradient-to-r from-[#D4AF37] to-[#F4C430] text-[#0A1628] font-semibold hover:shadow-lg hover:shadow-[#D4AF37]/50 transition-all duration-300 hover:scale-105"
-              asChild
-            >
-              <Link to="/contact">Book Consultation</Link>
             </Button>
           </div>
 
@@ -106,7 +100,7 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-4 border-t border-[#D4AF37]/20 space-y-3">
+            <div className="pt-4 border-t border-[#D4AF37]/20">
               <Button
                 variant="outline"
                 className="w-full border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-[#0A1628]"
@@ -117,13 +111,6 @@ const Header = () => {
               >
                 <LogIn className="w-4 h-4 mr-2" />
                 Client Portal
-              </Button>
-              <Button
-                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4C430] text-[#0A1628] font-semibold"
-                asChild
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <Link to="/contact">Book Consultation</Link>
               </Button>
             </div>
           </nav>
