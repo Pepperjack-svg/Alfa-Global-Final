@@ -1,4 +1,4 @@
-// Mock data for Alfa Global Group website - Exact content from reference website
+// Mock data for Alfa Global Group website - Complete content from reference website
 
 export const heroData = {
   title: "Beyond Capital. Building Futures.",
@@ -191,22 +191,28 @@ export const contactData = {
 
 export const navigationLinks = [
   { label: "Home", path: "/" },
+  { label: "About", path: "/about" },
+  { label: "Solutions", path: "/solutions" },
+  { label: "Insights", path: "/insights" },
   { label: "Contact", path: "/contact" }
 ];
 
 export const footerLinks = {
   solutions: [
-    { label: "Alternative Investments & Funds", path: "/#services" },
-    { label: "Strategic Ventures & Holdings", path: "/#services" },
-    { label: "High-Impact Projects", path: "/#services" },
-    { label: "Global Partnerships & Advisory", path: "/#services" }
+    { label: "Alternative Investments & Funds", path: "/solutions#alternative" },
+    { label: "Strategic Ventures & Holdings", path: "/solutions#ventures" },
+    { label: "High-Impact Projects", path: "/solutions#projects" },
+    { label: "Global Partnerships & Advisory", path: "/solutions#partnerships" }
   ],
   company: [
-    { label: "About Us", path: "/#about" },
+    { label: "About Us", path: "/about" },
+    { label: "Our Team", path: "/about#team" },
     { label: "Contact", path: "/contact" }
   ],
   resources: [
-    { label: "Insights", path: "/#insights" }
+    { label: "Insights", path: "/insights" },
+    { label: "Market Updates", path: "/insights" },
+    { label: "Investment Calculator", path: "/#calculator" }
   ]
 };
 
