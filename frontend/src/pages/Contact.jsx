@@ -5,8 +5,12 @@ import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
 import { Card, CardContent } from '../components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
-import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 import { contactData, companyTypes, areasOfInterest } from '../mock';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,11 +21,28 @@ const Contact = () => {
     areaOfInterest: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Thank you for your message! Our team will contact you shortly.');
-    setFormData({ name: '', email: '', phone: '', companyType: '', areaOfInterest: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitError('');
+    
+    try {
+      const response = await axios.post(`${API}/contact`, formData);
+      if (response.data.success) {
+        setSubmitSuccess(true);
+        setFormData({ name: '', email: '', phone: '', companyType: '', areaOfInterest: '', message: '' });
+        setTimeout(() => setSubmitSuccess(false), 5000);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitError('Failed to submit form. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -108,6 +129,19 @@ const Contact = () => {
                 <CardContent className="p-8">
                   <h2 className="text-3xl font-bold text-[#0A1628] mb-2">Let's Talk About Your Next Project</h2>
                   <p className="text-gray-600 mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
+                  
+                  {submitSuccess && (
+                    <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-3">
+                      <CheckCircle className="w-6 h-6 text-green-600" />
+                      <p className="text-green-800">Thank you for your message! Our team will contact you shortly.</p>
+                    </div>
+                  )}
+
+                  {submitError && (
+                    <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                      <p className="text-red-800">{submitError}</p>
+                    </div>
+                  )}
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -209,9 +243,10 @@ const Contact = () => {
                     <Button
                       type="submit"
                       size="lg"
-                      className="w-full bg-[#D4AF37] text-[#0A1628] font-semibold hover:bg-[#F4C430] transition-all hover:shadow-lg text-lg py-6"
+                      disabled={isSubmitting}
+                      className="w-full bg-[#D4AF37] text-[#0A1628] font-semibold hover:bg-[#F4C430] transition-all hover:shadow-lg text-lg py-6 disabled:opacity-50"
                     >
-                      Send Message
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                       <Send className="ml-2 w-5 h-5" />
                     </Button>
                   </form>

@@ -1,15 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
 import { footerLinks, contactData } from '../mock';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const Footer = () => {
-  const handleNewsletterSubmit = (e) => {
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  const handleNewsletterSubmit = async (e) => {
     e.preventDefault();
-    // Mock newsletter subscription
-    alert('Thank you for subscribing to our newsletter!');
+    setIsSubmitting(true);
+    setSubmitError('');
+    
+    try {
+      const response = await axios.post(`${API}/newsletter`, { email });
+      if (response.data.success) {
+        setSubmitSuccess(true);
+        setEmail('');
+        setTimeout(() => setSubmitSuccess(false), 5000);
+      }
+    } catch (error) {
+      console.error('Error subscribing to newsletter:', error);
+      setSubmitError('Failed to subscribe. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -22,18 +45,32 @@ const Footer = () => {
             <p className="text-gray-400 mb-6">
               Subscribe to receive exclusive insights, market updates, and investment opportunities.
             </p>
+            {submitSuccess && (
+              <div className="mb-4 p-3 bg-green-500/20 border border-green-500 rounded-lg flex items-center justify-center space-x-2">
+                <CheckCircle className="w-5 h-5 text-green-400" />
+                <p className="text-green-400">Successfully subscribed to newsletter!</p>
+              </div>
+            )}
+            {submitError && (
+              <div className="mb-4 p-3 bg-red-500/20 border border-red-500 rounded-lg">
+                <p className="text-red-400">{submitError}</p>
+              </div>
+            )}
             <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3">
               <Input
                 type="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="flex-1 bg-white/5 border-[#D4AF37]/30 text-white placeholder:text-gray-500 focus:border-[#D4AF37]"
                 required
               />
               <Button
                 type="submit"
-                className="bg-gradient-to-r from-[#D4AF37] to-[#F4C430] text-[#0A1628] font-semibold hover:shadow-lg hover:shadow-[#D4AF37]/50 transition-all"
+                disabled={isSubmitting}
+                className="bg-[#D4AF37] text-[#0A1628] font-semibold hover:bg-[#F4C430] transition-all hover:shadow-lg disabled:opacity-50"
               >
-                Subscribe
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
               </Button>
             </form>
           </div>
