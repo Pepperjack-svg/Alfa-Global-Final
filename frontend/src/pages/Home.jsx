@@ -7,6 +7,7 @@ import Values from '../components/Values';
 import InvestmentCalculator from '../components/InvestmentCalculator';
 import Testimonials from '../components/Testimonials';
 import Insights from '../components/Insights';
+import FAQ from '../components/FAQ';
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <InvestmentCalculator />
       <Testimonials />
       <Insights />
+      <FAQ />
     </div>
   );
 };
