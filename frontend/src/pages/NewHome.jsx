@@ -89,7 +89,7 @@ const NewHome = () => {
       {/* Services Overview */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 scroll-animate">
             <p className="text-xs font-semibold text-gray-500 mb-4 tracking-widest uppercase">Solutions</p>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-6 text-gray-900">Helping you create an<br />enduring legacy</h2>
           </div>
@@ -117,11 +117,11 @@ const NewHome = () => {
                 image: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&w=800'
               }
             ].map((service, index) => (
-              <div key={index} className="group relative overflow-hidden bg-gray-900 h-[450px] cursor-pointer">
+              <div key={index} className="group relative overflow-hidden bg-gray-900 h-[450px] cursor-pointer scroll-animate hover-lift" style={{transitionDelay: `${index * 0.1}s`}}>
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover opacity-70 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700"
+                  className="w-full h-full object-cover opacity-70 group-hover:opacity-50 group-hover:scale-110 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
                 <div className="absolute inset-0 p-10 flex flex-col justify-end text-white">
