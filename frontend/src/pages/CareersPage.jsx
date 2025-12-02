@@ -33,21 +33,14 @@ const CareersPage = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-20">
+    <div className="min-h-screen pt-24">
       {/* Hero Section */}
-      <section className="relative h-96 bg-gray-900 mb-20">
-        <img
-          src="https://images.unsplash.com/photo-1682187516046-addee7e1ffc4?q=85&w=2000"
-          alt="Careers"
-          className="w-full h-full object-cover opacity-40"
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-4">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-4">Careers</h1>
-            <p className="text-base max-w-2xl mx-auto">
-              Join our team of exceptional professionals building the future of wealth management
-            </p>
-          </div>
+      <section className="relative py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight">Careers</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+            Join our team of exceptional professionals building the future of wealth management
+          </p>
         </div>
       </section>
 
