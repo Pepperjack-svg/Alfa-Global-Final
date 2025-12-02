@@ -84,3 +84,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
 }
+
+/* Hide Emergent badge */
+iframe[src*="emergent"],
+div[class*="emergent-badge"],
+a[href*="emergent.ai"],
+#emergent-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
