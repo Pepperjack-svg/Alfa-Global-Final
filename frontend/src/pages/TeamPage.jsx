@@ -41,54 +41,49 @@ const TeamPage = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-32 pb-20">
+    <div className="min-h-screen pt-24">
       {/* Hero Section */}
-      <section className="relative h-96 bg-gray-900 mb-20">
-        <img
-          src="https://images.unsplash.com/photo-1641760387096-b309eb085758?q=85&w=2000"
-          alt="Team"
-          className="w-full h-full object-cover opacity-40"
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-4">Our Leadership Team</h1>
-            <p className="text-base max-w-2xl mx-auto px-4">
-              Meet the visionaries driving our mission to create enduring value across industries and generations
-            </p>
-          </div>
+      <section className="relative py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tight">Our Leadership Team</h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
+            Meet the visionaries driving our mission to create enduring value across industries and generations
+          </p>
         </div>
       </section>
 
       {/* Team Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {teamMembers.map((member, index) => (
-            <div key={index} className="group">
-              <div className="relative overflow-hidden mb-6 h-96">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                />
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="group">
+                <div className="relative overflow-hidden mb-8 h-[450px]">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  />
+                </div>
+                <h3 className="text-2xl font-light mb-2 text-gray-900">{member.name}</h3>
+                <p className="text-sm text-gray-500 mb-4 font-medium tracking-wide uppercase">{member.role}</p>
+                <p className="text-base text-gray-600 leading-relaxed">{member.bio}</p>
               </div>
-              <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-              <p className="text-sm text-gray-600 mb-3 font-medium">{member.role}</p>
-              <p className="text-sm text-gray-600 leading-relaxed">{member.bio}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="mt-20 bg-gray-50 py-16">
+      <section className="py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-light mb-6">Join Our Team</h2>
-          <p className="text-base text-gray-600 mb-8 leading-relaxed">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-8 text-gray-900">Join Our Team</h2>
+          <p className="text-lg text-gray-600 mb-12 leading-relaxed font-light">
             We're always looking for talented individuals who share our passion for creating transformative ventures.
           </p>
           <a
             href="/careers"
-            className="inline-block bg-gray-900 text-white px-8 py-4 text-sm font-medium hover:bg-gray-800 transition-colors duration-300"
+            className="inline-block bg-gray-900 text-white px-10 py-4 text-base font-medium hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             View Open Positions
           </a>
