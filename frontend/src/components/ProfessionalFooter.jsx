@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const ProfessionalFooter = () => {
   return (
-    <footer className="relative bg-gradient-to-b from-zinc-950 to-black text-white overflow-hidden">
-      {/* Elegant Top Border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent" />
+    <footer className="relative bg-gradient-to-b from-slate-900 via-slate-800 to-slate-950 text-white overflow-hidden">
+      {/* Elegant Top Border with Gold Accent */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/60 to-transparent" />
       
       {/* Professional Sleek Modern Skyline */}
       <div className="absolute bottom-0 left-0 right-0 h-64 opacity-20">
