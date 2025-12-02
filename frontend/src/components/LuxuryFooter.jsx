@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom';
 
 const LuxuryFooter = () => {
   return (
-    <footer className="relative bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white overflow-hidden">
-      {/* Enhanced Architectural Skyline Design */}
-      <div className="absolute inset-0 opacity-10">
+    <footer className="relative bg-black text-white overflow-hidden">
+      {/* Top Accent Line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
+      
+      {/* Sophisticated Architectural Skyline Design */}
+      <div className="absolute inset-0 opacity-15">
         <svg className="w-full h-full" viewBox="0 0 1400 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
           {/* Detailed Building Skyline */}
           <g className="buildings">
