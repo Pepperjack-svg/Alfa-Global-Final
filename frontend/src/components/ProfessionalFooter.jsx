@@ -279,9 +279,9 @@ const ProfessionalFooter = () => {
                 <a 
                   key={index}
                   href="#" 
-                  className="w-10 h-10 border border-zinc-800 hover:border-zinc-600 flex items-center justify-center transition-all duration-300 group"
+                  className="w-10 h-10 border border-slate-700 hover:border-amber-500/60 flex items-center justify-center transition-all duration-300 group"
                 >
-                  <svg className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-slate-400 group-hover:text-amber-400 transition-colors" fill="currentColor" viewBox="0 0 24 24">
                     <path d={icon} />
                   </svg>
                 </a>
