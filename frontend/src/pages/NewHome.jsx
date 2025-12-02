@@ -63,14 +63,14 @@ const NewHome = () => {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1 relative h-[500px]">
+            <div className="order-2 lg:order-1 relative h-[500px] scroll-animate hover-lift">
               <img
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=85&w=1200"
                 alt="Business Team Collaboration"
-                className="w-full h-full object-cover shadow-2xl"
+                className="w-full h-full object-cover shadow-2xl transition-transform duration-500"
               />
             </div>
-            <div className="order-1 lg:order-2">
+            <div className="order-1 lg:order-2 scroll-animate">
               <p className="text-xs font-semibold text-gray-500 mb-4 tracking-widest uppercase">Our Purpose</p>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-8 text-gray-900">Why We Exist</h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6">
