@@ -1,77 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const LuxuryHero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  
-  const slides = [
-    {
-      image: 'https://images.unsplash.com/photo-1593523278268-f91d46d3d606?q=85&w=2000',
-      title: 'Beyond Capital.',
-      subtitle: 'Building Futures.'
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1760969006935-ca9f9cf5b117?q=85&w=2000',
-      title: 'Transformative',
-      subtitle: 'Ideas & Ventures'
-    }
-  ];
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <div className="relative h-screen w-full overflow-hidden">
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <div className="absolute inset-0 bg-black/40 z-10" />
-          <img
-            src={slide.image}
-            alt={`Hero ${index + 1}`}
-            className="w-full h-full object-cover"
-          />
-        </div>
-      ))}
-      
-      <div className="absolute inset-0 z-20 flex items-center justify-center">
-        <div className="text-center text-white px-4 max-w-5xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-6 leading-tight">
-            {slides[currentSlide].title}
-          </h1>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light mb-8">
-            {slides[currentSlide].subtitle}
-          </h2>
-          <p className="text-base sm:text-lg max-w-3xl mx-auto mb-12 font-light leading-relaxed">
-            Alfa Global Group is a diversified global organization committed to creating enduring value across industries and generations.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block bg-white text-gray-900 px-8 py-4 text-sm font-medium hover:bg-gray-100 transition-colors duration-300"
-          >
-            Explore Our World
-          </a>
-        </div>
+      {/* Single luxury building image - no carousel */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent z-10" />
+        <img
+          src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=85&w=2400"
+          alt="Luxury Corporate Building"
+          className="w-full h-full object-cover"
+        />
       </div>
       
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-2">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
+      <div className="absolute inset-0 z-20 flex items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-3xl">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light text-white mb-6 leading-tight tracking-tight">
+              Beyond Capital.
+            </h1>
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight">
+              Building Futures.
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-200 mb-12 font-light leading-relaxed max-w-2xl">
+              Alfa Global Group is a diversified global organization committed to creating enduring value across industries and generations.
+            </p>
+            <a
+              href="/contact"
+              className="inline-block bg-white text-gray-900 px-10 py-4 text-base font-medium hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
+            >
+              Explore Our World
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
