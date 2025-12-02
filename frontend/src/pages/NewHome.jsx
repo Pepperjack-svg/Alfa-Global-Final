@@ -48,11 +48,11 @@ const NewHome = () => {
                 opportunities that go beyond conventional boundaries.
               </p>
             </div>
-            <div className="relative h-[500px]">
+            <div className="relative h-[500px] scroll-animate hover-lift">
               <img
                 src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=85&w=1200"
                 alt="Wealth Management Consultation"
-                className="w-full h-full object-cover shadow-2xl"
+                className="w-full h-full object-cover shadow-2xl transition-transform duration-500"
               />
             </div>
           </div>
