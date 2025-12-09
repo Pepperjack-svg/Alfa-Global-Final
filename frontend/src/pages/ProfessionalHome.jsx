@@ -5,7 +5,7 @@ const ProfessionalHome = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Building Background */}
-      <section className="relative text-white pt-32 pb-20 overflow-hidden">
+      <section className="relative text-white pt-40 pb-32 overflow-hidden min-h-[600px]">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
