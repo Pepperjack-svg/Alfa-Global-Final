@@ -35,7 +35,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
-        <ProfessionalFooter />
+        <CorporateFooter />
       </BrowserRouter>
     </div>
   );
