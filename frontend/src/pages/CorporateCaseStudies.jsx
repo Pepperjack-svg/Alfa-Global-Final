@@ -43,7 +43,7 @@ const CorporateCaseStudies = () => {
       <section className="relative text-white pt-40 pb-32 overflow-hidden min-h-[500px]">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=85&w=2000"
+            src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=85&w=2000"
             alt="Case Studies"
             className="w-full h-full object-cover"
           />
