@@ -25,10 +25,10 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<ProfessionalHome />} />
-            <Route path="/about" element={<NewAbout />} />
-            <Route path="/services" element={<NewServices />} />
-            <Route path="/team" element={<TeamPage />} />
-            <Route path="/case-studies" element={<CaseStudiesPage />} />
+            <Route path="/about" element={<CorporateAbout />} />
+            <Route path="/services" element={<CorporateServices />} />
+            <Route path="/team" element={<CorporateTeam />} />
+            <Route path="/case-studies" element={<CorporateCaseStudies />} />
             <Route path="/careers" element={<CareersPage />} />
             <Route path="/insights" element={<InsightsPage />} />
             <Route path="/faq" element={<FAQPage />} />
