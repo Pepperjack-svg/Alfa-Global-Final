@@ -3,34 +3,23 @@ import { Link } from 'react-router-dom';
 
 const WaterfieldHome = () => {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section - Waterfield Inspired */}
-      <section className="relative pt-32 pb-24 bg-gradient-to-br from-teal-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-6 leading-tight">
-                Building Wealth <br />Beyond Numbers
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Specializing in top-tier wealth management and strategic advisory, we are dedicated to crafting personalized, effective strategies that guide you through every step of your financial journey.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link to="/services" className="px-8 py-3 bg-teal-700 text-white font-medium hover:bg-teal-800 transition-colors rounded">
-                  Explore Services
-                </Link>
-                <Link to="/contact" className="px-8 py-3 border-2 border-teal-700 text-teal-700 font-medium hover:bg-teal-50 transition-colors rounded">
-                  Get Started
-                </Link>
-              </div>
-            </div>
-            <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?q=85&w=1200"
-                alt="Wealth Management Professional"
-                className="w-full h-auto rounded-lg shadow-2xl"
-              />
-            </div>
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section - Waterfield Style */}
+      <section className="relative pt-40 pb-32 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-8 leading-tight tracking-tight">
+            Helping you create an<br />enduring legacy
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
+            Specializing in top-tier Financial Advisory and Succession Planning, we are dedicated to crafting personalized, effective wealth management strategies guiding you through every step of your financial journey.
+          </p>
+          <div className="flex flex-wrap gap-6 justify-center">
+            <Link to="/contact" className="px-10 py-4 bg-teal-600 text-white font-normal hover:bg-teal-700 transition-colors text-lg">
+              Get Started
+            </Link>
+            <Link to="/services" className="px-10 py-4 border-2 border-gray-300 text-gray-700 font-normal hover:border-teal-600 hover:text-teal-600 transition-colors text-lg">
+              Explore Services
+            </Link>
           </div>
         </div>
       </section>
