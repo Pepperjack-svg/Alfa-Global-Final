@@ -155,7 +155,12 @@ const AlfaHome = () => {
               </div>
             </div>
             <div className="relative h-full min-h-[400px] lg:min-h-[500px]">
-              <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1486325212027-8081e485255e?q=85&w=1200')` }} />
+              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20">
+                <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1486325212027-8081e485255e?q=85&w=1200')` }} />
+              </div>
+              {/* Decorative corner accent */}
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 border-l-4 border-b-4 border-[#1a6b64] rounded-bl-3xl"></div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 border-r-4 border-t-4 border-[#1a6b64] rounded-tr-3xl"></div>
             </div>
           </div>
         </div>
