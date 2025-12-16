@@ -12,14 +12,14 @@ const AlfaHome = () => {
   const strategies = [
     { title: 'Category I Funds', link: '/services#category1' },
     { title: 'Category II Funds', link: '/services#category2' },
-    { title: 'Category III Funde', link: '/services#category3' }
+    { title: 'Category III Funds', link: '/services#category3' }
   ];
 
   const whyAlfaFeatures = [
     {
       icon: 'governance',
       title: 'Governance',
-      description: 'ReJust regulatory standards'
+      description: 'Robust regulatory standards'
     },
     {
       icon: 'technology',
@@ -29,12 +29,12 @@ const AlfaHome = () => {
     {
       icon: 'research',
       title: 'Research',
-      description: 'Data-driven Investment dedsions'
+      description: 'Data-driven investment decisions'
     },
     {
       icon: 'global',
       title: 'Global Mandate',
-      description: 'Opportunities across asset asset classes'
+      description: 'Opportunities across asset classes'
     }
   ];
 
