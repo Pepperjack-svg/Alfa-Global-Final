@@ -439,9 +439,9 @@ const AlfaHome = () => {
       </section>
 
       {/* Contact CTA Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
               <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-4">Contact Us</p>
               <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-8">Ready to Start Your Investment Journey?</h2>
