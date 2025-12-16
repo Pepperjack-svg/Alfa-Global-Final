@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const AlfaHome = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [email, setEmail] = useState('');
 
   const complianceBadges = [
     { icon: 'document', label: 'IFSCA-compliant' },
@@ -26,19 +26,28 @@ const AlfaHome = () => {
 
   const services = [
     {
-      title: 'Wealth Management',
-      description: 'Comprehensive wealth management solutions for HNIs and family offices',
+      title: 'Alternative Investments & Funds',
+      description: 'Structured investment platforms, AIFs, hedge-style LLPs, and specialized capital strategies designed for sophisticated investors.',
+      features: ['Private Equity Funds', 'Hedge Fund Strategies', 'Alternative Investment Funds (AIFs)', 'Structured Products'],
       image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=85&w=600'
     },
     {
-      title: 'Investment Advisory',
-      description: 'Strategic investment guidance tailored to your financial goals',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=85&w=600'
+      title: 'Strategic Ventures & Holdings',
+      description: 'Proprietary investments in companies, joint ventures, and scalable businesses across sectors with focus on long-term value creation.',
+      features: ['Direct Equity Investments', 'Joint Venture Partnerships', 'Growth Capital', 'Management Buyouts'],
+      image: 'https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=85&w=600'
     },
     {
-      title: 'Portfolio Management',
-      description: 'Active management of diversified investment portfolios',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=85&w=600'
+      title: 'High-Impact Projects',
+      description: 'Initiating and funding transformative projects in finance, infrastructure, shipping, manufacturing, and technology.',
+      features: ['Infrastructure Development', 'Manufacturing Projects', 'Maritime Investments', 'Technology Ventures'],
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=85&w=600'
+    },
+    {
+      title: 'Global Partnerships & Advisory',
+      description: 'Cross-border alliances, family office structures, and institutional collaborations that unlock global opportunities.',
+      features: ['Family Office Services', 'Cross-Border M&A', 'Strategic Advisory', 'Institutional Consulting'],
+      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=85&w=600'
     }
   ];
 
@@ -47,6 +56,15 @@ const AlfaHome = () => {
     { value: '25+', label: 'Years of Experience' },
     { value: '500+', label: 'Satisfied Clients' },
     { value: '15+', label: 'Global Markets' }
+  ];
+
+  const coreValues = [
+    { title: 'Excellence', description: 'We pursue the highest standards in everything we do.' },
+    { title: 'Integrity', description: 'Transparency and ethical conduct form our foundation.' },
+    { title: 'Innovation', description: 'Continuously evolving our approaches and strategies.' },
+    { title: 'Partnership', description: 'Building lasting relationships based on trust.' },
+    { title: 'Impact', description: 'Creating positive change beyond financial returns.' },
+    { title: 'Vision', description: 'Focusing on sustainable multi-generational growth.' }
   ];
 
   const teamMembers = [
@@ -66,6 +84,22 @@ const AlfaHome = () => {
     { title: 'Market Outlook 2025', category: 'Research', date: 'Dec 2024', image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=85&w=400' },
     { title: 'Alternative Investments Guide', category: 'Education', date: 'Nov 2024', image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=85&w=400' },
     { title: 'Global Economic Trends', category: 'Analysis', date: 'Oct 2024', image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?q=85&w=400' }
+  ];
+
+  const awards = [
+    'Best Wealth Advisory Firm - India 2024',
+    'Excellence in Family Office Services',
+    'Top Financial Advisor - Asia Pacific',
+    'Best for Sustainability in India',
+    'Innovation in Investment Management',
+    'Client Service Excellence Award'
+  ];
+
+  const offices = [
+    { city: 'Mumbai', address: 'Nariman Point, Mumbai - 400021' },
+    { city: 'GIFT City', address: 'GIFT IFSC, Gujarat - 382355' },
+    { city: 'Delhi NCR', address: 'Sector 16B, Noida - 201301' },
+    { city: 'Bengaluru', address: 'Ulsoor Road, Bengaluru - 560042' }
   ];
 
   const renderIcon = (type, size = 'w-5 h-5') => {
@@ -94,6 +128,9 @@ const AlfaHome = () => {
                 Local Insight. Institutional<br />
                 Discipline.
               </h1>
+              <p className="text-lg text-gray-600 mb-8 max-w-lg">
+                We invest in ideas, businesses, and projects that shape industries, empower legacies, and create sustainable value across generations.
+              </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/services" className="px-8 py-4 bg-[#1a6b64] text-white font-medium hover:bg-[#145550] transition-colors">
                   Explore Our Funds
@@ -145,10 +182,7 @@ const AlfaHome = () => {
           <div className="flex justify-between items-center mb-12">
             <h2 className="text-2xl font-semibold text-gray-900">Why Alfa Global Capital</h2>
             <Link to="/about" className="text-[#1a6b64] text-sm font-medium hover:underline flex items-center">
-              Explore All
-              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-              </svg>
+              Explore All <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
             </Link>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -177,7 +211,31 @@ const AlfaHome = () => {
         </div>
       </section>
 
-      {/* Our Services Section */}
+      {/* About Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-4">About Us</p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">Who We Are</h2>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Alfa Global Group is a diversified global organization driven by vision, innovation, and impact. We invest in ideas, businesses, and projects that shape industries, empower legacies, and create sustainable value across generations.
+              </p>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Our strength lies in combining capital markets expertise with entrepreneurial execution to build opportunities that go beyond conventional boundaries. We believe wealth is not just financial capital—it is the ability to create, transform, and leave behind something meaningful.
+              </p>
+              <Link to="/about" className="inline-flex items-center px-8 py-4 bg-[#1a6b64] text-white font-medium hover:bg-[#145550] transition-colors">
+                Learn More <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </Link>
+            </div>
+            <div className="relative">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=85&w=800" alt="Alfa Global Office" className="w-full aspect-[4/3] object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
       <section className="py-20 bg-[#f5f5f5]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="flex justify-between items-center mb-12">
@@ -186,21 +244,18 @@ const AlfaHome = () => {
               <h2 className="text-3xl font-semibold text-gray-900">What We Offer</h2>
             </div>
             <Link to="/services" className="text-[#1a6b64] text-sm font-medium hover:underline flex items-center">
-              View All Services
-              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-              </svg>
+              View All Services <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
             </Link>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <div key={index} className="bg-white group overflow-hidden">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{service.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{service.description}</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{service.title}</h3>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{service.description}</p>
                   <Link to="/services" className="text-[#1a6b64] text-sm font-medium hover:underline">Learn more →</Link>
                 </div>
               </div>
@@ -209,31 +264,20 @@ const AlfaHome = () => {
         </div>
       </section>
 
-      {/* About Section with Image */}
+      {/* Core Values Section */}
       <section className="py-20 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-4">About Us</p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6">
-                Building Wealth.<br />Creating Legacies.
-              </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Alfa Global Group is a premier wealth management and investment advisory firm dedicated to serving high-net-worth individuals, family offices, and institutional investors. With over 25 years of experience, we provide comprehensive financial solutions tailored to our clients' unique needs.
-              </p>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Our team of seasoned professionals combines deep market expertise with cutting-edge technology to deliver superior investment outcomes. We believe in building lasting relationships based on trust, transparency, and consistent performance.
-              </p>
-              <Link to="/about" className="inline-flex items-center px-8 py-4 bg-[#1a6b64] text-white font-medium hover:bg-[#145550] transition-colors">
-                Learn More About Us
-                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
-            <div className="relative">
-              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=85&w=800" alt="Alfa Global Office" className="w-full aspect-[4/3] object-cover" />
-            </div>
+          <div className="text-center mb-16">
+            <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-2">Our Foundation</p>
+            <h2 className="text-3xl font-semibold text-gray-900">Core Values</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {coreValues.map((value, index) => (
+              <div key={index} className="text-center p-6 border border-gray-100 hover:border-[#1a6b64] transition-colors">
+                <h3 className="text-base font-semibold text-gray-900 mb-2">{value.title}</h3>
+                <p className="text-sm text-gray-600">{value.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -262,22 +306,44 @@ const AlfaHome = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Awards Section */}
       <section className="py-20 bg-[#1a1a1a]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
+            <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-2">Recognition</p>
+            <h2 className="text-3xl font-semibold text-white">Awards & Achievements</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {awards.map((award, index) => (
+              <div key={index} className="text-center p-6 border border-gray-700 hover:border-[#1a6b64] transition-colors">
+                <div className="w-12 h-12 mx-auto mb-4 border border-[#1a6b64] flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#1a6b64]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                  </svg>
+                </div>
+                <p className="text-white text-sm">{award}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
             <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-2">Testimonials</p>
-            <h2 className="text-3xl font-semibold text-white">What Our Clients Say</h2>
+            <h2 className="text-3xl font-semibold text-gray-900">What Our Clients Say</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-[#2a2a2a] p-8">
+              <div key={index} className="bg-[#f5f5f5] p-8">
                 <svg className="w-10 h-10 text-[#1a6b64] mb-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
-                <p className="text-gray-300 mb-6 leading-relaxed">"{testimonial.content}"</p>
+                <p className="text-gray-700 mb-6 leading-relaxed">"{testimonial.content}"</p>
                 <div>
-                  <p className="text-white font-medium">{testimonial.author}</p>
+                  <p className="text-gray-900 font-medium">{testimonial.author}</p>
                   <p className="text-gray-500 text-sm">{testimonial.role}</p>
                 </div>
               </div>
@@ -287,7 +353,7 @@ const AlfaHome = () => {
       </section>
 
       {/* Insights Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#f5f5f5]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="flex justify-between items-center mb-12">
             <div>
@@ -295,23 +361,44 @@ const AlfaHome = () => {
               <h2 className="text-3xl font-semibold text-gray-900">Latest Research & Analysis</h2>
             </div>
             <Link to="/insights" className="text-[#1a6b64] text-sm font-medium hover:underline flex items-center">
-              View All Insights
-              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-              </svg>
+              View All <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {insights.map((insight, index) => (
-              <div key={index} className="group">
-                <div className="aspect-[16/10] overflow-hidden mb-4">
+              <div key={index} className="group bg-white">
+                <div className="aspect-[16/10] overflow-hidden">
                   <img src={insight.image} alt={insight.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-[#1a6b64] text-xs font-medium uppercase">{insight.category}</span>
-                  <span className="text-gray-400 text-xs">{insight.date}</span>
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-[#1a6b64] text-xs font-medium uppercase">{insight.category}</span>
+                    <span className="text-gray-400 text-xs">{insight.date}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#1a6b64] transition-colors">{insight.title}</h3>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#1a6b64] transition-colors">{insight.title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Offices Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-2">Locations</p>
+            <h2 className="text-3xl font-semibold text-gray-900">Our Offices</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {offices.map((office, index) => (
+              <div key={index} className="text-center p-6 border border-gray-100">
+                <svg className="w-8 h-8 text-[#1a6b64] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <h3 className="text-lg font-semibold text-gray-900 mb-1">{office.city}</h3>
+                <p className="text-sm text-gray-600">{office.address}</p>
               </div>
             ))}
           </div>
@@ -319,23 +406,18 @@ const AlfaHome = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 bg-[#f5f5f5]">
+      <section className="py-20 bg-[#1a6b64]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="bg-white p-12 md:p-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-4">Newsletter</p>
-                <h2 className="text-3xl font-semibold text-gray-900 mb-4">Stay Informed</h2>
-                <p className="text-gray-600">Get our latest insights, market updates, and investment strategies delivered straight to your inbox.</p>
-              </div>
-              <div>
-                <form className="flex flex-col sm:flex-row gap-4">
-                  <input type="email" placeholder="Enter your email" className="flex-1 px-6 py-4 border border-gray-200 focus:outline-none focus:border-[#1a6b64] transition-colors" />
-                  <button type="submit" className="px-8 py-4 bg-[#1a6b64] text-white font-medium hover:bg-[#145550] transition-colors">
-                    Subscribe
-                  </button>
-                </form>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-semibold text-white mb-4">Stay Informed</h2>
+              <p className="text-white/80">Get our latest insights, market updates, and investment strategies delivered straight to your inbox.</p>
+            </div>
+            <div>
+              <form className="flex flex-col sm:flex-row gap-4">
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" className="flex-1 px-6 py-4 bg-white focus:outline-none" />
+                <button type="submit" className="px-8 py-4 bg-[#0f1419] text-white font-medium hover:bg-black transition-colors">Subscribe</button>
+              </form>
             </div>
           </div>
         </div>
@@ -356,11 +438,7 @@ const AlfaHome = () => {
                 </div>
                 <div>
                   <h4 className="text-sm text-gray-500 uppercase tracking-wider mb-2">Head Office</h4>
-                  <p className="text-gray-800">Mumbai, Maharashtra, India</p>
-                </div>
-                <div>
-                  <h4 className="text-sm text-gray-500 uppercase tracking-wider mb-2">GIFT City Office</h4>
-                  <p className="text-gray-800">GIFT City, Gujarat, India</p>
+                  <p className="text-gray-800">Nariman Point, Mumbai - 400021</p>
                 </div>
               </div>
             </div>
@@ -373,17 +451,14 @@ const AlfaHome = () => {
                 <input type="tel" placeholder="Phone Number" className="w-full px-6 py-4 border border-gray-200 focus:outline-none focus:border-[#1a6b64] transition-colors" />
                 <select className="w-full px-6 py-4 border border-gray-200 focus:outline-none focus:border-[#1a6b64] transition-colors text-gray-600">
                   <option value="">Topic of Enquiry</option>
-                  <option value="wealth">Wealth Management</option>
-                  <option value="investment">Investment Advisory</option>
-                  <option value="funds">Fund Management</option>
-                  <option value="other">Other</option>
+                  <option value="funds">Alternative Investments & Funds</option>
+                  <option value="ventures">Strategic Ventures</option>
+                  <option value="projects">High-Impact Projects</option>
+                  <option value="advisory">Global Advisory</option>
                 </select>
                 <textarea placeholder="Your Message" rows={4} className="w-full px-6 py-4 border border-gray-200 focus:outline-none focus:border-[#1a6b64] transition-colors resize-none" />
                 <button type="submit" className="w-full px-8 py-4 bg-[#1a6b64] text-white font-medium hover:bg-[#145550] transition-colors flex items-center justify-center">
-                  Send Message
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  Send Message <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </button>
               </form>
             </div>
