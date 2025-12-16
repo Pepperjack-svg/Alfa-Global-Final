@@ -212,7 +212,7 @@ const AlfaHome = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-[#1a6b64]">
+      <section className="py-12 bg-[#1a6b64]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => (
@@ -226,7 +226,7 @@ const AlfaHome = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -250,9 +250,9 @@ const AlfaHome = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-[#f5f5f5]">
+      <section className="py-12 bg-[#f5f5f5]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="flex justify-between items-center mb-12">
+          <div className="flex justify-between items-center mb-8">
             <div>
               <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-2">Services</p>
               <h2 className="text-3xl font-semibold text-gray-900">What We Offer</h2>
@@ -300,9 +300,9 @@ const AlfaHome = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-[#f5f5f5]">
+      <section className="py-12 bg-[#f5f5f5]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-2">Leadership</p>
             <h2 className="text-3xl font-semibold text-gray-900">Meet Our Team</h2>
           </div>
@@ -317,7 +317,7 @@ const AlfaHome = () => {
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <Link to="/team" className="text-[#1a6b64] text-sm font-medium hover:underline">View Full Team →</Link>
           </div>
         </div>
@@ -344,9 +344,9 @@ const AlfaHome = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-2">Testimonials</p>
             <h2 className="text-3xl font-semibold text-gray-900">What Our Clients Say</h2>
           </div>
