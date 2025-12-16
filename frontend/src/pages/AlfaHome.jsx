@@ -279,17 +279,20 @@ const AlfaHome = () => {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-2">Our Foundation</p>
             <h2 className="text-3xl font-semibold text-gray-900">Core Values</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {coreValues.map((value, index) => (
-              <div key={index} className="text-center p-6 border border-gray-100 hover:border-[#1a6b64] transition-colors">
-                <h3 className="text-base font-semibold text-gray-900 mb-2">{value.title}</h3>
-                <p className="text-sm text-gray-600">{value.description}</p>
+              <div key={index} className="text-center p-5 border border-gray-100 hover:border-[#1a6b64] transition-colors">
+                <div className="w-10 h-10 mx-auto mb-3 bg-[#1a6b64]/10 rounded-full flex items-center justify-center">
+                  <div className="text-[#1a6b64]">{renderIcon(value.icon, 'w-5 h-5')}</div>
+                </div>
+                <h3 className="text-base font-semibold text-gray-900 mb-1">{value.title}</h3>
+                <p className="text-xs text-gray-600">{value.description}</p>
               </div>
             ))}
           </div>
@@ -321,21 +324,19 @@ const AlfaHome = () => {
       </section>
 
       {/* Awards Section */}
-      <section className="py-20 bg-[#1a1a1a]">
+      <section className="py-12 bg-[#1a1a1a]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-2">Recognition</p>
             <h2 className="text-3xl font-semibold text-white">Awards & Achievements</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {awards.map((award, index) => (
-              <div key={index} className="text-center p-6 border border-gray-700 hover:border-[#1a6b64] transition-colors">
-                <div className="w-12 h-12 mx-auto mb-4 border border-[#1a6b64] flex items-center justify-center">
-                  <svg className="w-6 h-6 text-[#1a6b64]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                  </svg>
+              <div key={index} className="text-center p-5 border border-gray-700 hover:border-[#1a6b64] transition-colors">
+                <div className="w-10 h-10 mx-auto mb-3 border border-[#1a6b64] rounded-full flex items-center justify-center">
+                  <div className="text-[#1a6b64]">{renderIcon(award.icon, 'w-5 h-5')}</div>
                 </div>
-                <p className="text-white text-sm">{award}</p>
+                <p className="text-white text-xs">{award.title}</p>
               </div>
             ))}
           </div>
