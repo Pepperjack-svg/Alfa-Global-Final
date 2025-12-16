@@ -368,9 +368,9 @@ const AlfaHome = () => {
       </section>
 
       {/* Insights Section */}
-      <section className="py-20 bg-[#f5f5f5]">
+      <section className="py-12 bg-[#f5f5f5]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="flex justify-between items-center mb-12">
+          <div className="flex justify-between items-center mb-8">
             <div>
               <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-2">Insights</p>
               <h2 className="text-3xl font-semibold text-gray-900">Latest Research & Analysis</h2>
@@ -399,9 +399,9 @@ const AlfaHome = () => {
       </section>
 
       {/* Offices Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <p className="text-[#1a6b64] text-sm tracking-[0.2em] uppercase mb-2">Locations</p>
             <h2 className="text-3xl font-semibold text-gray-900">Our Offices</h2>
           </div>
@@ -421,7 +421,7 @@ const AlfaHome = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 bg-[#1a6b64]">
+      <section className="py-12 bg-[#1a6b64]">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
