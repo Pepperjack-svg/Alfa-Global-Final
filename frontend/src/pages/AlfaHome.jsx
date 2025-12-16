@@ -59,12 +59,12 @@ const AlfaHome = () => {
   ];
 
   const coreValues = [
-    { title: 'Excellence', description: 'We pursue the highest standards in everything we do.' },
-    { title: 'Integrity', description: 'Transparency and ethical conduct form our foundation.' },
-    { title: 'Innovation', description: 'Continuously evolving our approaches and strategies.' },
-    { title: 'Partnership', description: 'Building lasting relationships based on trust.' },
-    { title: 'Impact', description: 'Creating positive change beyond financial returns.' },
-    { title: 'Vision', description: 'Focusing on sustainable multi-generational growth.' }
+    { icon: 'star', title: 'Excellence', description: 'We pursue the highest standards in everything we do.' },
+    { icon: 'shield', title: 'Integrity', description: 'Transparency and ethical conduct form our foundation.' },
+    { icon: 'lightbulb', title: 'Innovation', description: 'Continuously evolving our approaches and strategies.' },
+    { icon: 'handshake', title: 'Partnership', description: 'Building lasting relationships based on trust.' },
+    { icon: 'target', title: 'Impact', description: 'Creating positive change beyond financial returns.' },
+    { icon: 'eye', title: 'Vision', description: 'Focusing on sustainable multi-generational growth.' }
   ];
 
   const teamMembers = [
@@ -87,12 +87,12 @@ const AlfaHome = () => {
   ];
 
   const awards = [
-    'Best Wealth Advisory Firm - India 2024',
-    'Excellence in Family Office Services',
-    'Top Financial Advisor - Asia Pacific',
-    'Best for Sustainability in India',
-    'Innovation in Investment Management',
-    'Client Service Excellence Award'
+    { icon: 'trophy', title: 'Best Wealth Advisory Firm - India 2024' },
+    { icon: 'award', title: 'Excellence in Family Office Services' },
+    { icon: 'medal', title: 'Top Financial Advisor - Asia Pacific' },
+    { icon: 'leaf', title: 'Best for Sustainability in India' },
+    { icon: 'rocket', title: 'Innovation in Investment Management' },
+    { icon: 'heart', title: 'Client Service Excellence Award' }
   ];
 
   const offices = [
