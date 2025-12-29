@@ -1,0 +1,194 @@
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const ElegantHeader = ({ theme = 'gold' }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const themes = {
+    gold: {
+      accent: 'text-amber-600',
+      accentHover: 'hover:text-amber-700',
+      button: 'bg-amber-600 hover:bg-amber-700',
+      border: 'border-amber-200',
+      gradient: 'from-amber-50 to-white'
+    },
+    silver: {
+      accent: 'text-gray-600',
+      accentHover: 'hover:text-gray-800',
+      button: 'bg-gray-700 hover:bg-gray-800',
+      border: 'border-gray-200',
+      gradient: 'from-gray-50 to-white'
+    }
+  };
+
+  const t = themes[theme];
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
+
+  const navItems = [
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Services', path: '/services' },
+    { label: 'Team', path: '/team' },
+    { label: 'Insights', path: '/insights' },
+    { label: 'Contact', path: '/contact' }
+  ];
+
+  return (
+    <>
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled 
+            ? 'bg-white/95 backdrop-blur-lg shadow-lg shadow-black/5' 
+            : 'bg-transparent'
+        }`}
+      >
+        {/* Top Bar */}
+        <div className={`hidden lg:block border-b ${t.border} bg-gradient-to-r ${t.gradient}`}>
+          <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-2">
+            <div className="flex justify-between items-center text-xs text-gray-500">
+              <div className="flex items-center gap-6">
+                <span className="flex items-center gap-1">
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  +91-22-6621-0700
+                </span>
+                <span className="flex items-center gap-1">
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  info@alfaglobalgroup.com
+                </span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span>SEBI Registered</span>
+                <span>•</span>
+                <span>IFSCA Compliant</span>
+                <span>•</span>
+                <span>ISO Certified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Nav */}
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <Link to="/" className="flex items-center group">
+              <img
+                src="https://websitesbytechpioneers.com/alfaglobalnew/image/alfa-global-logo-removebg-preview.png"
+                alt="Alfa Global Group"
+                className="h-14 transition-transform group-hover:scale-105"
+              />
+            </Link>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-8">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Link
+                    to={item.path}
+                    className={`text-sm font-medium text-gray-700 ${t.accentHover} transition-colors relative group`}
+                  >
+                    {item.label}
+                    <span className={`absolute -bottom-1 left-0 w-0 h-0.5 ${theme === 'gold' ? 'bg-amber-500' : 'bg-gray-500'} transition-all group-hover:w-full`} />
+                  </Link>
+                </motion.div>
+              ))}
+            </nav>
+
+            {/* CTA Buttons */}
+            <div className="hidden lg:flex items-center space-x-4">
+              <a
+                href="https://portal.alfaglobalgroup.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`text-sm font-medium ${t.accent} ${t.accentHover} transition-colors`}
+              >
+                Client Portal
+              </a>
+              <Link
+                to="/contact"
+                className={`px-6 py-2.5 ${t.button} text-white text-sm font-medium rounded-full transition-all hover:shadow-lg`}
+              >
+                Get Started
+              </Link>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-gray-700"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {isMobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+      </motion.header>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            className="fixed inset-0 z-40 bg-white lg:hidden pt-32"
+          >
+            <nav className="flex flex-col items-center space-y-6 p-8">
+              {navItems.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Link
+                    to={item.path}
+                    className={`text-xl text-gray-700 ${t.accentHover} transition-colors`}
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              ))}
+              <Link
+                to="/contact"
+                className={`mt-6 px-8 py-3 ${t.button} text-white rounded-full`}
+              >
+                Get Started
+              </Link>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+export default ElegantHeader;
