@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import GlobePreloader from './components/GlobePreloader';
-import ElegantHeader from './components/ElegantHeader';
-import ElegantFooter from './components/ElegantFooter';
-import ElegantHome from './pages/ElegantHome';
+import Globe3DPreloader from './components/Globe3DPreloader';
+import UltraHeader from './components/UltraHeader';
+import UltraFooter from './components/UltraFooter';
+import UltraHome from './pages/UltraHome';
 import PremiumContact from './pages/PremiumContact';
 import CorporateAbout from './pages/CorporateAbout';
 import CorporateServices from './pages/CorporateServices';
