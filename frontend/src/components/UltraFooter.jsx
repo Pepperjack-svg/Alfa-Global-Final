@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 const UltraFooter = ({ theme = 'gold' }) => {
   const themes = {
@@ -17,10 +16,24 @@ const UltraFooter = ({ theme = 'gold' }) => {
       button: 'bg-gray-600 hover:bg-gray-500',
       border: 'border-gray-600',
       logoColor: '#9ca3af'
+    },
+    purple: {
+      accent: 'text-purple-400',
+      accentHover: 'hover:text-purple-300',
+      button: 'bg-purple-600 hover:bg-purple-500',
+      border: 'border-purple-500/20',
+      logoColor: '#a855f7'
+    },
+    teal: {
+      accent: 'text-teal-400',
+      accentHover: 'hover:text-teal-300',
+      button: 'bg-teal-600 hover:bg-teal-500',
+      border: 'border-teal-500/20',
+      logoColor: '#2dd4bf'
     }
   };
 
-  const t = themes[theme];
+  const t = themes[theme] || themes.gold;
 
   const quickLinks = [
     { label: 'About Us', path: '/about' },
