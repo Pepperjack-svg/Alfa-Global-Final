@@ -80,10 +80,10 @@ const UltraHome = ({ theme = 'gold' }) => {
 
   // Stats - exact values from reference
   const stats = [
-    { value: 585, prefix: '₹', suffix: 'Cr+', label: 'Assets Under Management' },
-    { value: 2, suffix: '+', label: 'Years of Excellence' },
-    { value: 58, suffix: '+', label: 'Satisfied Clients' },
-    { value: 1, suffix: '+', label: 'Global Markets' }
+    { value: 213, prefix: '₹', suffix: 'Cr+', label: 'Assets Under Management' },
+    { value: 15, suffix: '+', label: 'Years of Excellence' },
+    { value: 21, suffix: '+', label: 'Satisfied Clients' },
+    { value: 10, suffix: '+', label: 'Global Markets' }
   ];
 
   // Market indices
