@@ -626,6 +626,18 @@ const UltraHome = ({ theme = 'gold' }) => {
           </div>
         </div>
       </section>
+
+      {/* Service Highlights */}
+      <ServiceHighlights theme={theme} />
+
+      {/* Client Testimonials */}
+      <ClientTestimonials theme={theme} />
+
+      {/* Partners & Certifications */}
+      <PartnersLogos theme={theme} />
+
+      {/* Newsletter Subscription */}
+      <NewsletterSubscription theme={theme} />
     </div>
   );
 };
