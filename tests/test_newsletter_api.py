@@ -135,7 +135,9 @@ class TestTestimonialsAPI:
         response = requests.get(f"{BASE_URL}/api/testimonials")
         assert response.status_code == 200
         data = response.json()
-        assert isinstance(data, list)
+        # API returns {success: true, data: [...]}
+        assert data.get("success") == True
+        assert isinstance(data.get("data"), list)
 
 
 class TestInsightsAPI:
@@ -146,7 +148,9 @@ class TestInsightsAPI:
         response = requests.get(f"{BASE_URL}/api/insights")
         assert response.status_code == 200
         data = response.json()
-        assert isinstance(data, list)
+        # API returns {success: true, data: [...]}
+        assert data.get("success") == True
+        assert isinstance(data.get("data"), list)
 
 
 if __name__ == "__main__":
