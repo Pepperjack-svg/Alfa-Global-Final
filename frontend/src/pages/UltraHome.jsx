@@ -109,48 +109,6 @@ const UltraHome = ({ theme = 'gold' }) => {
 
   const t = themes[theme] || themes.gold;
 
-  // Animated Counter - fixed to stop properly
-  const useAnimatedCounter = (end, duration = 2000) => {
-    const [count, setCount] = useState(0);
-    const ref = useRef(null);
-    const hasAnimated = useRef(false);
-    const isInView = useInView(ref, { once: true, margin: "-50px" });
-    
-    useEffect(() => {
-      if (isInView && !hasAnimated.current) {
-        hasAnimated.current = true;
-        let startTime = null;
-        let animationFrame;
-        
-        const animate = (timestamp) => {
-          if (!startTime) startTime = timestamp;
-          const elapsed = timestamp - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const easeOut = 1 - Math.pow(1 - progress, 3);
-          const currentCount = Math.floor(easeOut * end);
-          
-          setCount(currentCount);
-          
-          if (progress < 1) {
-            animationFrame = requestAnimationFrame(animate);
-          } else {
-            setCount(end); // Ensure final value is exact
-          }
-        };
-        
-        animationFrame = requestAnimationFrame(animate);
-        
-        return () => {
-          if (animationFrame) {
-            cancelAnimationFrame(animationFrame);
-          }
-        };
-      }
-    }, [isInView, end, duration]);
-    
-    return [count, ref];
-  };
-
   // Stats - exact values from reference
   const stats = [
     { value: 213, prefix: '₹', suffix: 'Cr+', label: 'Assets Under Management' },
