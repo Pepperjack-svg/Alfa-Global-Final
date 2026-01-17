@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Globe3DPreloader from './components/Globe3DPreloader';
 import UltraHeader from './components/UltraHeader';
 import UltraFooter from './components/UltraFooter';
+import FloatingWidgets from './components/FloatingWidgets';
 import UltraHome from './pages/UltraHome';
 import PremiumContact from './pages/PremiumContact';
 import AboutPage from './pages/AboutPage';
