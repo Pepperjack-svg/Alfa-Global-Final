@@ -94,17 +94,7 @@ const UltraHome = ({ theme = 'gold' }) => {
     { name: 'USD/INR', value: '83.12', change: '+0.05%', up: true }
   ];
 
-  // Client logos from reference site
-  const clientLogos = [
-    { name: 'Partner 1', logo: 'https://websitesbytechpioneers.com/alfaglobalnew/image/client-1.png' },
-    { name: 'Partner 2', logo: 'https://websitesbytechpioneers.com/alfaglobalnew/image/client-2.png' },
-    { name: 'Partner 3', logo: 'https://websitesbytechpioneers.com/alfaglobalnew/image/client-3.png' },
-    { name: 'Partner 4', logo: 'https://websitesbytechpioneers.com/alfaglobalnew/image/client-4.png' },
-    { name: 'Partner 5', logo: 'https://websitesbytechpioneers.com/alfaglobalnew/image/client-5.png' },
-    { name: 'Partner 6', logo: 'https://websitesbytechpioneers.com/alfaglobalnew/image/client-6.png' },
-    { name: 'Partner 7', logo: 'https://websitesbytechpioneers.com/alfaglobalnew/image/client-7.png' },
-    { name: 'Partner 8', logo: 'https://websitesbytechpioneers.com/alfaglobalnew/image/client-8.png' }
-  ];
+  // Client logos removed as per request
 
   // Services from reference site - exact content
   const services = [
