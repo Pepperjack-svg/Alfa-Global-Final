@@ -113,7 +113,7 @@ const UltraHome = ({ theme = 'gold' }) => {
       title: 'Alternative Investments & Funds',
       desc: 'Structured investment platforms, AIFs, hedge-style LLPs, and specialized capital strategies.',
       features: ['Private Equity Funds', 'Hedge Fund Strategies', 'Alternative Investment Funds', 'Structured Products'],
-      image: 'https://websitesbytechpioneers.com/alfaglobalnew/image/financial-advisory.jpg'
+      image: 'https://images.unsplash.com/photo-1758518729696-884228731fce?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBhbmFseXNpcyUyMGJ1c2luZXNzJTIwbWVldGluZyUyMGNoYXJ0c3xlbnwwfHx8fDE3Njg2NTk3NDd8MA&ixlib=rb-4.1.0&q=85'
     },
     {
       icon: 'https://websitesbytechpioneers.com/alfaglobalnew/image/strategic-partnerships.png',
