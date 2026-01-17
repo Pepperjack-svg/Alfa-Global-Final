@@ -1,146 +1,85 @@
 import React from 'react';
-import { TrendingUp, DollarSign, Users, Globe, Sprout, Shield } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
-import { Button } from '../components/ui/button';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-const ServicesPage = () => {
+const ServicesPage = ({ theme = 'gold' }) => {
+  const themes = {
+    gold: { accentText: 'text-amber-600', accentBg: 'bg-amber-600', accentBgLight: 'bg-amber-50', accentBorder: 'border-amber-200', accentHover: 'hover:bg-amber-700', gradient: 'from-amber-600 to-amber-700', heroBg: 'from-slate-950 via-slate-900 to-slate-950', heroAccent: 'text-amber-400', checkColor: 'text-amber-500' },
+    silver: { accentText: 'text-gray-700', accentBg: 'bg-gray-700', accentBgLight: 'bg-gray-100', accentBorder: 'border-gray-300', accentHover: 'hover:bg-gray-800', gradient: 'from-gray-700 to-gray-800', heroBg: 'from-gray-950 via-gray-900 to-gray-950', heroAccent: 'text-gray-300', checkColor: 'text-gray-500' },
+    purple: { accentText: 'text-purple-600', accentBg: 'bg-purple-600', accentBgLight: 'bg-purple-50', accentBorder: 'border-purple-200', accentHover: 'hover:bg-purple-700', gradient: 'from-purple-600 to-purple-700', heroBg: 'from-purple-950 via-slate-950 to-purple-950', heroAccent: 'text-purple-400', checkColor: 'text-purple-500' },
+    teal: { accentText: 'text-teal-600', accentBg: 'bg-teal-600', accentBgLight: 'bg-teal-50', accentBorder: 'border-teal-200', accentHover: 'hover:bg-teal-700', gradient: 'from-teal-600 to-teal-700', heroBg: 'from-teal-950 via-slate-950 to-teal-950', heroAccent: 'text-teal-400', checkColor: 'text-teal-500' }
+  };
+  const t = themes[theme] || themes.gold;
+
   const services = [
-    {
-      id: 1,
-      icon: DollarSign,
-      title: "Wealth Management & Advisory",
-      description: "Through Alfa Global Wealth Advisors, we offer personalized wealth management, investment planning, and advisory solutions for high net worth individuals (HNIs) and institutional clients. Our team focuses on portfolio diversification, tax efficiency, and risk management to help clients achieve financial freedom and security."
-    },
-    {
-      id: 2,
-      icon: TrendingUp,
-      title: "Private Equity & Strategic Investments",
-      description: "Alfa Star Dynamics LLP drives private equity and capital investments across global maritime, infrastructure, and industrial sectors. We identify high growth opportunities and structure investments that deliver superior returns while ensuring governance and compliance. and risk management to help clients achieve financial freedom and security."
-    },
-    {
-      id: 3,
-      icon: Users,
-      title: "Fintech Trading & Alpha Engineering",
-      description: "With Alfa Zillion Traders LLP, we combine fintech innovation with advanced trading strategies. Our proprietary platforms and AI powered models empower select partners to capture alpha, optimize portfolios, and redefine how trading is executed."
-    },
-    {
-      id: 4,
-      icon: Globe,
-      title: "Wealth Product Distribution & Broking",
-      description: "Gazillion Capital Pvt Ltd is a next generation platform for financial product distribution, stock broking, and investor education. We simplify access to financial markets and equip investors with knowledge to make informed decisions."
-    },
-    {
-      id: 5,
-      icon: Sprout,
-      title: "Agriculture & Natural Resources",
-      description: "Through MK Dairy Farms Pvt Ltd, we bring innovation to agriculture, dairy, and natural resources distribution. Our sustainable practices support rural economies while ensuring supply chain reliability and quality output."
-    },
-    {
-      id: 6,
-      icon: Shield,
-      title: "Cyber Security Solution",
-      description: "Cyberhakz Pvt Ltd delivers enterprise grade cyber security services to protect businesses from evolving threats. From network security to compliance and threat detection, we help organizations safeguard their assets and maintain trust in a digital world."
-    }
+    { icon: 'https://websitesbytechpioneers.com/alfaglobalnew/image/delivery%20(1).png', title: 'Delivering Value Across Industries', desc: 'At Alfa Global Group of Companies, we provide a comprehensive suite of services that span financial markets, wealth management, private equity, trading, agriculture, and cyber security. Our diversified expertise allows us to serve HNIs, institutions, and enterprises with tailored solutions that drive growth, stability, and long term success.' },
+    { icon: 'https://websitesbytechpioneers.com/alfaglobalnew/image/wealth.png', title: 'Wealth Management & Advisory', desc: 'Through Alfa Global Wealth Advisors, we offer personalized wealth management, investment planning, and advisory solutions for high net worth individuals (HNIs) and institutional clients. Our team focuses on portfolio diversification, tax efficiency, and risk management to help clients achieve financial freedom and security.' },
+    { icon: 'https://websitesbytechpioneers.com/alfaglobalnew/image/personal-wealth.png', title: 'Private Equity & Strategic Investments', desc: 'Alfa Star Dynamics LLP drives private equity and capital investments across global maritime, infrastructure, and industrial sectors. We identify high growth opportunities and structure investments that deliver superior returns while ensuring governance and compliance.' },
+    { icon: 'https://websitesbytechpioneers.com/alfaglobalnew/image/trading.png', title: 'Fintech Trading & Alpha Engineering', desc: 'With Alfa Zillion Traders LLP, we combine fintech innovation with advanced trading strategies. Our proprietary platforms and AI powered models empower select partners to capture alpha, optimize portfolios, and redefine how trading is executed.' },
+    { icon: 'https://websitesbytechpioneers.com/alfaglobalnew/image/allocation.png', title: 'Wealth Product Distribution & Broking', desc: 'Gazillion Capital Pvt Ltd is a next generation platform for financial product distribution, stock broking, and investor education. We simplify access to financial markets and equip investors with knowledge to make informed decisions.' },
+    { icon: 'https://websitesbytechpioneers.com/alfaglobalnew/image/natural-resources.png', title: 'Agriculture & Natural Resources', desc: 'Through MK Dairy Farms Pvt Ltd, we bring innovation to agriculture, dairy, and natural resources distribution. Our sustainable practices support rural economies while ensuring supply chain reliability and quality output.' },
+    { icon: 'https://websitesbytechpioneers.com/alfaglobalnew/image/clean-computer-virus.png', title: 'Cyber Security Solutions', desc: 'Cyberhakz Pvt Ltd delivers enterprise grade cyber security services to protect businesses from evolving threats. From network security to compliance and threat detection, we help organizations safeguard their assets and maintain trust in a digital world.' }
   ];
 
   const whyChoose = [
-    { label: "Diversified portfolio", value: "Diversified portfolio spanning finance, technology, agriculture, and security" },
-    { label: "25+ years of leadership experience", value: "25+ years of leadership experience across industries and global markets" },
-    { label: "85% repeat engagement rate", value: "85% repeat engagement rate, showcasing our trusted long term partnerships" },
-    { label: "Client centric approach", value: "Client centric approach with tailored strategies for HNIs, enterprises, and institutions" },
-    { label: "Innovation driven execution", value: "Innovation driven execution leveraging fintech, AI, and cyber technologies" }
+    { title: 'Diversified Portfolio', desc: 'Diversified portfolio spanning finance, technology, agriculture, and security' },
+    { title: '25+ Years Experience', desc: '25+ years of leadership experience across industries and global markets' },
+    { title: '85% Repeat Engagement', desc: '85% repeat engagement rate, showcasing our trusted long term partnerships' },
+    { title: 'Client Centric Approach', desc: 'Client centric approach with tailored strategies for HNIs, enterprises, and institutions' },
+    { title: 'Innovation Driven', desc: 'Innovation driven execution leveraging fintech, AI, and cyber technologies' }
   ];
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-[#0A1628] via-[#142444] to-[#0A1628] py-32 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img
-            src="https://images.unsplash.com/photo-1642522029691-029b5a432954?crop=entropy&cs=srgb&fm=jpg&q=85"
-            alt="Services"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="container mx-auto px-4 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-[#D4AF37] font-semibold mb-4 uppercase tracking-wider">Our Core Services</p>
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Services</h1>
-            <p className="text-xl text-gray-300 leading-relaxed">
-              Delivering Value Across Industries
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Intro Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-lg text-gray-600 leading-relaxed">
-              At Alfa Global Group of Companies, we provide a comprehensive suite of services that span financial markets, wealth management, private equity, trading, agriculture, and cyber security. Our diversified expertise allows us to serve HNIs, institutions, and enterprises with tailored solutions that drive growth, stability, and long term success.
-            </p>
-          </div>
+    <div className="min-h-screen bg-white">
+      {/* Hero */}
+      <section className={`relative py-32 bg-gradient-to-br ${t.heroBg}`}>
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 text-center">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
+            Our Services
+          </motion.h1>
+          <p className="text-white/60 text-lg">Our Core Services</p>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 bg-[#FAF9F6]">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {services.map((service) => {
-              const Icon = service.icon;
-              return (
-                <Card key={service.id} className="border-2 border-gray-200 hover:border-[#D4AF37] transition-all duration-300 hover:shadow-xl">
-                  <CardHeader>
-                    <div className="w-16 h-16 bg-[#D4AF37]/10 rounded-xl flex items-center justify-center mb-4">
-                      <Icon className="w-8 h-8 text-[#D4AF37]" />
-                    </div>
-                    <CardTitle className="text-xl font-bold text-[#0A1628]">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 leading-relaxed">
-                      {service.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-lg text-gray-700 mb-6">
-              Need a custom solution? Let's create a strategy tailored for your business.
-            </p>
-            <Button
-              size="lg"
-              className="bg-[#D4AF37] text-[#0A1628] font-semibold hover:bg-[#F4C430] transition-all hover:shadow-lg text-lg px-8"
-              asChild
-            >
-              <Link to="/contact">Get a Free Strategy Call</Link>
-            </Button>
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {services.map((service, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className={`p-8 rounded-2xl border ${t.accentBorder} hover:shadow-xl transition-all`}>
+                <img src={service.icon} alt={service.title} className="w-16 h-16 object-contain mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{service.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Why Choose Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold text-[#0A1628] text-center mb-12">
-              Why Choose Alfa Global Services?
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {whyChoose.map((item, index) => (
-                <div key={index} className="text-center p-6">
-                  <h3 className="text-[#D4AF37] font-bold text-lg mb-2">{item.label}</h3>
-                  <p className="text-gray-600">{item.value}</p>
-                </div>
-              ))}
-            </div>
+      {/* CTA Banner */}
+      <section className={`py-12 ${t.accentBgLight}`}>
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 text-center">
+          <p className="text-gray-700 text-lg mb-4">Need a custom solution? Let's create a strategy tailored for your business.</p>
+          <Link to="/contact" className={`inline-flex items-center gap-2 px-8 py-4 ${t.accentBg} text-white font-semibold rounded-lg ${t.accentHover} transition-all`}>
+            Get a Free Strategy Call <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </Link>
+        </div>
+      </section>
+
+      {/* Why Choose */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Why Choose Alfa Global Services?</h2>
+          </motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyChoose.map((item, i) => (
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className={`p-6 rounded-xl ${t.accentBgLight} border ${t.accentBorder}`}>
+                <svg className={`w-8 h-8 ${t.checkColor} mb-4`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm">{item.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
