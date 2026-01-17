@@ -204,16 +204,6 @@ const UltraHome = ({ theme = 'gold' }) => {
     return () => clearInterval(timer);
   }, [testimonials.length]);
 
-  const StatItem = ({ value, prefix = '', suffix = '', label }) => {
-    const [count, ref] = useAnimatedCounter(value);
-    return (
-      <div ref={ref} className="text-center px-4 py-6 md:py-8">
-        <div className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold ${t.statsText}`}>{prefix}{count}{suffix}</div>
-        <div className={`${t.statsText} text-xs sm:text-sm mt-2 uppercase tracking-wider opacity-90`}>{label}</div>
-      </div>
-    );
-  };
-
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Scroll Progress */}
