@@ -68,10 +68,10 @@ const AlfaGlobalWealthAdvisorsPage = ({ theme = 'gold' }) => {
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <span className={`${t.accentText} text-sm font-semibold tracking-widest uppercase`}>The Wealth Arm of Alfa Global Group</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-3 mb-6">Comprehensive Wealth Advisory</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Alfa Global Wealth Advisors Private Limited is the flagship advisory arm of Alfa Global Group of Companies, providing a comprehensive range of financial and strategic services including wealth management, investment advisory, structuring, business consulting, and capital solutions.
+              <p className="text-gray-600 mb-6 leading-relaxed text-justify">
+                Alfa Global Wealth Advisors is the flagship advisory arm of Alfa Global Group of Companies, providing a comprehensive range of financial and strategic services including wealth management, investment advisory, structuring, business consulting, and capital solutions.
               </p>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-justify">
                 With deep expertise in the capital markets and a client centric approach, the company empowers HNIs, family offices, and enterprises with tailored financial strategies. From personalized portfolio management, investment planning, and risk mitigation to structuring, succession planning, and institutional solutions, we deliver end to end financial guidance.
               </p>
             </motion.div>
