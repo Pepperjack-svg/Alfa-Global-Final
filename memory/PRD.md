@@ -56,7 +56,11 @@ Build a premium, professional website for "Alfa Global Group" - a diversified gl
 - [x] **Working images on all company pages** (replaced broken external URLs with Unsplash)
 - [x] **Hero CTAs on all company pages** - Single "Find out More" button linking to external company websites
 - [x] **Hero banner transparency effect** - Subtle grid pattern + radial gradients on dark hero sections
-- [x] **External links**: Each company page links to its dedicated website
+- [x] **Text justification** applied throughout all pages
+- [x] **LLP and Pvt Ltd removed** from all company page titles
+- [x] **Indian origin people images** used on company and team pages
+- [x] **Team page** created at /team with 6 team members
+- [x] **Team link** added to navigation header
 - [x] **Newsletter subscription** with backend API (POST /api/newsletter)
 - [x] **WhatsApp floating chat button** for instant customer contact
 - [x] **Back to Top button** appears on scroll
