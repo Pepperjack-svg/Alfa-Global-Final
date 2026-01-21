@@ -106,10 +106,10 @@ const AlfaGlobalWealthAdvisorsPage = ({ theme = 'gold' }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Regulatory Compliance & Governance</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed text-justify">
                 At its core, Alfa Global Wealth Advisors is built on trust, transparency, and excellence. Operating within a well regulated framework, the company embraces the highest standards of compliance and governance, providing clients with the confidence to entrust their financial future to a trusted partner.
               </p>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed text-justify">
                 Incorporated under the Companies Act, 2013, the company is registered with the Ministry of Corporate Affairs and continues to uphold both regulatory compliance and operational integrity.
               </p>
               <div className="flex flex-wrap gap-4">
