@@ -20,6 +20,7 @@ import MKDairyFarmsPage from './pages/MKDairyFarmsPage';
 import CyberhakzPage from './pages/CyberhakzPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
+import TeamPage from './pages/TeamPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
