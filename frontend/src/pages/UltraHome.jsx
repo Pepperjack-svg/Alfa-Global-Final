@@ -363,14 +363,14 @@ const UltraHome = ({ theme = 'gold' }) => {
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <span className={`${t.accentText} text-sm font-semibold tracking-widest uppercase`}>Group Overview</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-3 mb-6">Who We Are</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed text-justify">
                 Alfa Global Group is a diversified global organization driven by vision, innovation, and impact. We invest in ideas, businesses, 
                 and projects that shape industries, empower legacies, and create sustainable value across generations. Our strength lies in combining 
                 capital markets expertise with entrepreneurial execution to build opportunities that go beyond conventional boundaries.
               </p>
               <span className={`${t.accentText} text-sm font-semibold tracking-widest uppercase`}>Our Purpose</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-3 mb-6">Why We Exist</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed text-justify">
                 We believe wealth is not just financial capital, it is the ability to create, transform, and leave behind something meaningful. 
                 Alfa Global Group exists to channel resources, knowledge, and strategy into ventures that redefine growth, spark innovation, 
                 and contribute to a better future for our clients, partners, and communities.
