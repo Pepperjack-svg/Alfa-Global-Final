@@ -69,15 +69,15 @@ const GazillionCapitalPage = ({ theme = 'gold' }) => {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <img src="https://images.unsplash.com/photo-1719464521902-4dc9595b182d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODl8MHwxfHNlYXJjaHwxfHxzdG9jayUyMG1hcmtldCUyMGludmVzdG1lbnQlMjBicm9rZXJ8ZW58MHx8fHwxNzY4NjU3MzA0fDA&ixlib=rb-4.1.0&q=85" alt="Investment Platform" className="rounded-2xl shadow-xl w-full h-[400px] object-cover" />
+              <img src="https://images.pexels.com/photos/7581115/pexels-photo-7581115.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Investment Platform" className="rounded-2xl shadow-xl w-full h-[400px] object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <span className={`${t.accentText} text-sm font-semibold tracking-widest uppercase`}>Democratizing Wealth for the Next Generation</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-3 mb-6">Financial Product Distribution & Investor Empowerment</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Gazillion Capital Private Limited is a next generation financial services company under the Alfa Global Group of Companies, focused on financial product distribution, stock broking, investor education, and corporate training.
+              <p className="text-gray-600 mb-6 leading-relaxed text-justify">
+                Gazillion Capital is a next generation financial services company under the Alfa Global Group of Companies, focused on financial product distribution, stock broking, investor education, and corporate training.
               </p>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-justify">
                 Our mission is to simplify access to financial markets and products while empowering investors through knowledge and confidence.
               </p>
             </motion.div>
