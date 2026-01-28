@@ -93,7 +93,7 @@ const AboutPage = ({ theme = 'teal' }) => {
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className={`p-6 rounded-2xl border ${t.accentBorder} hover:shadow-xl transition-all group`}>
                 <img src={company.logo} alt={company.name} className="h-16 w-auto mb-4 object-contain" />
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{company.name}</h3>
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">{company.desc}</p>
+                <p className="text-gray-600 text-sm mb-4 leading-relaxed text-justify">{company.desc}</p>
                 <Link to={company.link} className={`inline-flex items-center gap-2 ${t.accentText} font-semibold text-sm hover:gap-3 transition-all`}>
                   Learn More <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
                 </Link>
