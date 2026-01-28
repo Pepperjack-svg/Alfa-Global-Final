@@ -91,7 +91,7 @@ const FAQsPage = ({ theme = 'teal' }) => {
                           <AnimatePresence>
                             {activeFaq === uniqueKey && (
                               <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="px-6 pb-4">
-                                <p className="text-gray-600">{faq.a}</p>
+                                <p className="text-gray-600 text-justify">{faq.a}</p>
                               </motion.div>
                             )}
                           </AnimatePresence>
