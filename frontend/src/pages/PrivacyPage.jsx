@@ -97,7 +97,7 @@ const PrivacyPage = ({ theme = 'teal' }) => {
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-gray-600 mb-12 text-lg leading-relaxed"
+            className="text-gray-600 mb-12 text-lg leading-relaxed text-justify"
           >
             At Alfa Global Group, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
           </motion.p>
@@ -114,7 +114,7 @@ const PrivacyPage = ({ theme = 'teal' }) => {
               <h2 className={`text-xl font-bold text-gray-900 mb-4 ${t.accentText}`}>
                 {i + 1}. {section.title}
               </h2>
-              <p className="text-gray-600 whitespace-pre-line leading-relaxed">
+              <p className="text-gray-600 whitespace-pre-line leading-relaxed text-justify">
                 {section.content}
               </p>
             </motion.div>
