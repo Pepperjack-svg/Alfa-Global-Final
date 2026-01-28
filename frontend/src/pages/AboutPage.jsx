@@ -65,14 +65,14 @@ const AboutPage = ({ theme = 'teal' }) => {
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-white p-8 rounded-2xl shadow-lg">
               <img src="https://websitesbytechpioneers.com/alfaglobalnew/image/opportunity.png" alt="Vision" className="w-16 h-16 mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-justify">
                 To be a global catalyst for transformation, shaping industries, empowering legacies, and creating sustainable value that transcends generations.
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="bg-white p-8 rounded-2xl shadow-lg">
               <img src="https://websitesbytechpioneers.com/alfaglobalnew/image/targeting.png" alt="Mission" className="w-16 h-16 mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-justify">
                 Our mission is to invest in transformative ideas, strategic ventures, and high impact projects that drive innovation and growth across industries. By combining global intelligence, disciplined execution, and integrity, Alfa Global Group empowers clients, partners, and communities to build opportunities, legacies, and futures that last.
               </p>
             </motion.div>
