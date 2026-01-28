@@ -44,13 +44,13 @@ const AboutPage = ({ theme = 'teal' }) => {
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <span className={`${t.accentText} text-sm font-semibold tracking-widest uppercase`}>About Us</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-3 mb-6">Who We Are</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed text-justify">
                 Alfa Global Group is a global investment and ventures platform built on a vision of global transformation, innovation, and lasting impact. We invest in transformative ideas, strategic ventures, and high impact projects that shape industries and create sustainable value across generations.
               </p>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-gray-600 mb-6 leading-relaxed text-justify">
                 From pioneering funds and strategic holdings to projects in finance, infrastructure, shipping, manufacturing, and technology, our work reflects a commitment to building legacies that go beyond capital.
               </p>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-justify">
                 We believe success lies in more than financial outcomes, it is measured in the ability to spark innovation, empower communities, and leave behind a lasting legacy. By combining global intelligence with disciplined execution, Alfa Global Group continues to transform bold ideas into ventures that define the future of capital, business, and society.
               </p>
             </motion.div>
