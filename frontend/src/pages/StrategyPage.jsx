@@ -58,7 +58,7 @@ const StrategyPage = ({ theme = 'teal' }) => {
                   <div className={`w-12 h-12 ${t.accentBg} text-white rounded-full flex items-center justify-center text-xl font-bold shrink-0`}>{pillar.num}</div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{pillar.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{pillar.desc}</p>
+                    <p className="text-gray-600 leading-relaxed text-justify">{pillar.desc}</p>
                   </div>
                 </div>
               </motion.div>
