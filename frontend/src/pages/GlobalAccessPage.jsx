@@ -33,7 +33,7 @@ const GlobalAccessPage = ({ theme = 'teal' }) => {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Connecting Businesses to Global Opportunities</h2>
-            <p className="text-gray-600 mt-4 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-gray-600 mt-4 max-w-4xl mx-auto leading-relaxed text-justify">
               At Alfa Global Group of Companies, our strength lies in giving clients seamless access to international markets, investment opportunities, and cross border partnerships. With a strong global footprint, we bridge the gap between local expertise and international scale, enabling our partners to grow beyond boundaries.
             </p>
           </motion.div>
