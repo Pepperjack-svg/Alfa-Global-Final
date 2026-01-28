@@ -23,39 +23,14 @@ const UltraHome = ({ theme = 'gold' }) => {
     return () => clearInterval(timer);
   }, []);
 
-  // Theme configurations
-  const themes = {
-    gold: {
-      accent: 'amber-600', accentText: 'text-amber-600', accentBg: 'bg-amber-600', accentBgLight: 'bg-amber-50',
-      accentBorder: 'border-amber-200', accentHover: 'hover:bg-amber-700', gradient: 'from-amber-600 to-amber-700',
-      heroAccent: 'text-amber-400', heroAccentBg: 'bg-amber-400', heroBg: 'from-slate-950 via-slate-900 to-slate-950',
-      statsBg: 'bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600', statsText: 'text-white',
-      checkColor: 'text-amber-500', glowColor: 'rgba(251, 191, 36, 0.1)'
-    },
-    silver: {
-      accent: 'gray-600', accentText: 'text-gray-700', accentBg: 'bg-gray-700', accentBgLight: 'bg-gray-100',
-      accentBorder: 'border-gray-300', accentHover: 'hover:bg-gray-800', gradient: 'from-gray-700 to-gray-800',
-      heroAccent: 'text-gray-300', heroAccentBg: 'bg-gray-300', heroBg: 'from-gray-950 via-gray-900 to-gray-950',
-      statsBg: 'bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700', statsText: 'text-white',
-      checkColor: 'text-gray-500', glowColor: 'rgba(156, 163, 175, 0.1)'
-    },
-    purple: {
-      accent: 'purple-600', accentText: 'text-purple-600', accentBg: 'bg-purple-600', accentBgLight: 'bg-purple-50',
-      accentBorder: 'border-purple-200', accentHover: 'hover:bg-purple-700', gradient: 'from-purple-600 to-purple-700',
-      heroAccent: 'text-purple-400', heroAccentBg: 'bg-purple-400', heroBg: 'from-purple-950 via-slate-950 to-purple-950',
-      statsBg: 'bg-gradient-to-r from-purple-700 via-purple-600 to-purple-700', statsText: 'text-white',
-      checkColor: 'text-purple-500', glowColor: 'rgba(168, 85, 247, 0.1)'
-    },
-    teal: {
-      accent: 'teal-600', accentText: 'text-teal-600', accentBg: 'bg-teal-600', accentBgLight: 'bg-teal-50',
-      accentBorder: 'border-teal-200', accentHover: 'hover:bg-teal-700', gradient: 'from-teal-600 to-teal-700',
-      heroAccent: 'text-teal-400', heroAccentBg: 'bg-teal-400', heroBg: 'from-teal-950 via-slate-950 to-teal-950',
-      statsBg: 'bg-gradient-to-r from-teal-700 via-teal-600 to-teal-700', statsText: 'text-white',
-      checkColor: 'text-teal-500', glowColor: 'rgba(45, 212, 191, 0.1)'
-    }
+  // Teal theme configuration
+  const t = {
+    accent: 'teal-600', accentText: 'text-teal-600', accentBg: 'bg-teal-600', accentBgLight: 'bg-teal-50',
+    accentBorder: 'border-teal-200', accentHover: 'hover:bg-teal-700', gradient: 'from-teal-600 to-teal-700',
+    heroAccent: 'text-teal-400', heroAccentBg: 'bg-teal-400', heroBg: 'from-teal-950 via-slate-950 to-teal-950',
+    statsBg: 'bg-gradient-to-r from-teal-700 via-teal-600 to-teal-700', statsText: 'text-white',
+    checkColor: 'text-teal-500', glowColor: 'rgba(45, 212, 191, 0.1)'
   };
-
-  const t = themes[theme] || themes.gold;
 
   // Market indices
   const marketData = [
