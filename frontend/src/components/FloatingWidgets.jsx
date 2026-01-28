@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const FloatingWidgets = ({ theme = 'gold' }) => {
+const FloatingWidgets = ({ theme = 'teal' }) => {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [showCookieConsent, setShowCookieConsent] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const themes = {
-    gold: { accent: 'bg-amber-600', accentHover: 'hover:bg-amber-700', text: 'text-amber-600' },
-    silver: { accent: 'bg-gray-700', accentHover: 'hover:bg-gray-800', text: 'text-gray-700' },
-    purple: { accent: 'bg-purple-600', accentHover: 'hover:bg-purple-700', text: 'text-purple-600' },
-    teal: { accent: 'bg-teal-600', accentHover: 'hover:bg-teal-700', text: 'text-teal-600' }
-  };
-  const t = themes[theme] || themes.gold;
+  // Teal theme configuration
+  const t = { accent: 'bg-teal-600', accentHover: 'hover:bg-teal-700', text: 'text-teal-600' };
 
   useEffect(() => {
     // Check cookie consent

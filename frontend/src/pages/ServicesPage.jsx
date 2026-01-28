@@ -2,14 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const ServicesPage = ({ theme = 'gold' }) => {
-  const themes = {
-    gold: { accentText: 'text-amber-600', accentBg: 'bg-amber-600', accentBgLight: 'bg-amber-50', accentBorder: 'border-amber-200', accentHover: 'hover:bg-amber-700', gradient: 'from-amber-600 to-amber-700', heroBg: 'from-slate-950 via-slate-900 to-slate-950', heroAccent: 'text-amber-400', checkColor: 'text-amber-500' },
-    silver: { accentText: 'text-gray-700', accentBg: 'bg-gray-700', accentBgLight: 'bg-gray-100', accentBorder: 'border-gray-300', accentHover: 'hover:bg-gray-800', gradient: 'from-gray-700 to-gray-800', heroBg: 'from-gray-950 via-gray-900 to-gray-950', heroAccent: 'text-gray-300', checkColor: 'text-gray-500' },
-    purple: { accentText: 'text-purple-600', accentBg: 'bg-purple-600', accentBgLight: 'bg-purple-50', accentBorder: 'border-purple-200', accentHover: 'hover:bg-purple-700', gradient: 'from-purple-600 to-purple-700', heroBg: 'from-purple-950 via-slate-950 to-purple-950', heroAccent: 'text-purple-400', checkColor: 'text-purple-500' },
-    teal: { accentText: 'text-teal-600', accentBg: 'bg-teal-600', accentBgLight: 'bg-teal-50', accentBorder: 'border-teal-200', accentHover: 'hover:bg-teal-700', gradient: 'from-teal-600 to-teal-700', heroBg: 'from-teal-950 via-slate-950 to-teal-950', heroAccent: 'text-teal-400', checkColor: 'text-teal-500' }
-  };
-  const t = themes[theme] || themes.gold;
+const ServicesPage = ({ theme = 'teal' }) => {
+  // Teal theme configuration
+  const t = { accentText: 'text-teal-600', accentBg: 'bg-teal-600', accentBgLight: 'bg-teal-50', accentBorder: 'border-teal-200', accentHover: 'hover:bg-teal-700', gradient: 'from-teal-600 to-teal-700', heroBg: 'from-teal-950 via-slate-950 to-teal-950', heroAccent: 'text-teal-400', checkColor: 'text-teal-500' };
 
   const services = [
     { icon: 'https://websitesbytechpioneers.com/alfaglobalnew/image/delivery%20(1).png', title: 'Delivering Value Across Industries', desc: 'At Alfa Global Group of Companies, we provide a comprehensive suite of services that span financial markets, wealth management, private equity, trading, agriculture, and cyber security. Our diversified expertise allows us to serve HNIs, institutions, and enterprises with tailored solutions that drive growth, stability, and long term success.' },

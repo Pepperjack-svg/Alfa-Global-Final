@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const NewsletterSubscription = ({ theme = 'gold' }) => {
+const NewsletterSubscription = ({ theme = 'teal' }) => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle'); // idle, loading, success, error
   const [message, setMessage] = useState('');
 
-  const themes = {
-    gold: { accent: 'bg-amber-600', accentHover: 'hover:bg-amber-700', accentText: 'text-amber-600', accentBg: 'bg-amber-50', gradient: 'from-amber-600 to-amber-700' },
-    silver: { accent: 'bg-gray-700', accentHover: 'hover:bg-gray-800', accentText: 'text-gray-700', accentBg: 'bg-gray-100', gradient: 'from-gray-700 to-gray-800' },
-    purple: { accent: 'bg-purple-600', accentHover: 'hover:bg-purple-700', accentText: 'text-purple-600', accentBg: 'bg-purple-50', gradient: 'from-purple-600 to-purple-700' },
-    teal: { accent: 'bg-teal-600', accentHover: 'hover:bg-teal-700', accentText: 'text-teal-600', accentBg: 'bg-teal-50', gradient: 'from-teal-600 to-teal-700' }
-  };
-  const t = themes[theme] || themes.gold;
+  // Teal theme configuration
+  const t = { accent: 'bg-teal-600', accentHover: 'hover:bg-teal-700', accentText: 'text-teal-600', accentBg: 'bg-teal-50', gradient: 'from-teal-600 to-teal-700' };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

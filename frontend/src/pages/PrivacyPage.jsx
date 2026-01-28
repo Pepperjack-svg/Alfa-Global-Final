@@ -2,14 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const PrivacyPage = ({ theme = 'gold' }) => {
-  const themes = {
-    gold: { accentText: 'text-amber-600', accentBg: 'bg-amber-600', heroBg: 'from-slate-950 via-slate-900 to-slate-950' },
-    silver: { accentText: 'text-gray-700', accentBg: 'bg-gray-700', heroBg: 'from-gray-950 via-gray-900 to-gray-950' },
-    purple: { accentText: 'text-purple-600', accentBg: 'bg-purple-600', heroBg: 'from-purple-950 via-slate-950 to-purple-950' },
-    teal: { accentText: 'text-teal-600', accentBg: 'bg-teal-600', heroBg: 'from-teal-950 via-slate-950 to-teal-950' }
-  };
-  const t = themes[theme] || themes.gold;
+const PrivacyPage = ({ theme = 'teal' }) => {
+  // Teal theme configuration
+  const t = { accentText: 'text-teal-600', accentBg: 'bg-teal-600', heroBg: 'from-teal-950 via-slate-950 to-teal-950' };
 
   const sections = [
     {

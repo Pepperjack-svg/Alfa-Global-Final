@@ -2,20 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const UltraHeader = ({ theme = 'gold' }) => {
+const UltraHeader = ({ theme = 'teal' }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
 
-  const themes = {
-    gold: { accent: 'text-amber-600', accentHover: 'hover:text-amber-700', button: 'bg-amber-600 hover:bg-amber-700', border: 'border-amber-200', gradient: 'from-amber-50 to-white', logoColor: '#d97706', underline: 'bg-amber-500' },
-    silver: { accent: 'text-gray-600', accentHover: 'hover:text-gray-800', button: 'bg-gray-700 hover:bg-gray-800', border: 'border-gray-200', gradient: 'from-gray-50 to-white', logoColor: '#374151', underline: 'bg-gray-500' },
-    purple: { accent: 'text-purple-600', accentHover: 'hover:text-purple-700', button: 'bg-purple-600 hover:bg-purple-700', border: 'border-purple-200', gradient: 'from-purple-50 to-white', logoColor: '#9333ea', underline: 'bg-purple-500' },
-    teal: { accent: 'text-teal-600', accentHover: 'hover:text-teal-700', button: 'bg-teal-600 hover:bg-teal-700', border: 'border-teal-200', gradient: 'from-teal-50 to-white', logoColor: '#0d9488', underline: 'bg-teal-500' }
-  };
-
-  const t = themes[theme] || themes.gold;
+  // Teal theme configuration
+  const t = { accent: 'text-teal-600', accentHover: 'hover:text-teal-700', button: 'bg-teal-600 hover:bg-teal-700', border: 'border-teal-200', gradient: 'from-teal-50 to-white', logoColor: '#0d9488', underline: 'bg-teal-500' };
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);

@@ -1,39 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UltraFooter = ({ theme = 'gold' }) => {
-  const themes = {
-    gold: {
-      accent: 'text-amber-500',
-      accentHover: 'hover:text-amber-400',
-      button: 'bg-amber-600 hover:bg-amber-500',
-      border: 'border-amber-500/20',
-      logoColor: '#f59e0b'
-    },
-    silver: {
-      accent: 'text-gray-400',
-      accentHover: 'hover:text-gray-300',
-      button: 'bg-gray-600 hover:bg-gray-500',
-      border: 'border-gray-600',
-      logoColor: '#9ca3af'
-    },
-    purple: {
-      accent: 'text-purple-400',
-      accentHover: 'hover:text-purple-300',
-      button: 'bg-purple-600 hover:bg-purple-500',
-      border: 'border-purple-500/20',
-      logoColor: '#a855f7'
-    },
-    teal: {
+const UltraFooter = ({ theme = 'teal' }) => {
+  // Teal theme configuration
+  const t = {
       accent: 'text-teal-400',
       accentHover: 'hover:text-teal-300',
       button: 'bg-teal-600 hover:bg-teal-500',
       border: 'border-teal-500/20',
       logoColor: '#2dd4bf'
-    }
-  };
-
-  const t = themes[theme] || themes.gold;
+    };
 
   const quickLinks = [
     { label: 'About Us', path: '/about' },

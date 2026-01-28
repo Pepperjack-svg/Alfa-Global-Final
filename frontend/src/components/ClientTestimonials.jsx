@@ -1,14 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const ClientTestimonials = ({ theme = 'gold' }) => {
-  const themes = {
-    gold: { accentText: 'text-amber-600', accentBg: 'bg-amber-600', accentBgLight: 'bg-amber-50', starColor: 'text-amber-400' },
-    silver: { accentText: 'text-gray-700', accentBg: 'bg-gray-700', accentBgLight: 'bg-gray-100', starColor: 'text-gray-400' },
-    purple: { accentText: 'text-purple-600', accentBg: 'bg-purple-600', accentBgLight: 'bg-purple-50', starColor: 'text-purple-400' },
-    teal: { accentText: 'text-teal-600', accentBg: 'bg-teal-600', accentBgLight: 'bg-teal-50', starColor: 'text-teal-400' }
-  };
-  const t = themes[theme] || themes.gold;
+const ClientTestimonials = ({ theme = 'teal' }) => {
+  // Teal theme configuration
+  const t = { accentText: 'text-teal-600', accentBg: 'bg-teal-600', accentBgLight: 'bg-teal-50', starColor: 'text-teal-400' };
 
   const testimonials = [
     {
