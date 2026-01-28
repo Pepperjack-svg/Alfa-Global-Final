@@ -79,7 +79,7 @@ const ClientTestimonials = ({ theme = 'teal' }) => {
               </svg>
 
               {/* Content */}
-              <p className="text-gray-700 leading-relaxed mb-6">"{testimonial.content}"</p>
+              <p className="text-gray-700 leading-relaxed mb-6 text-justify">"{testimonial.content}"</p>
 
               {/* Rating */}
               <StarRating rating={testimonial.rating} />
