@@ -187,18 +187,6 @@ const UltraHome = ({ theme = 'teal' }) => {
                     Our Services
                   </Link>
                 </motion.div>
-
-                {/* Trust Badges */}
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }} className="flex flex-wrap items-center gap-6">
-                  {['SEBI Registered', 'IFSCA Compliant', 'ISO 27001'].map((badge, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <svg className={`w-4 h-4 ${t.heroAccent}`} fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-white/60 text-sm">{badge}</span>
-                    </div>
-                  ))}
-                </motion.div>
               </div>
             </div>
           </div>
