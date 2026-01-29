@@ -8,9 +8,6 @@ const PartnersLogos = ({ theme = 'teal' }) => {
 
   // Partner/certification logos
   const partners = [
-    { name: 'SEBI', subtitle: 'Registered' },
-    { name: 'IFSCA', subtitle: 'Compliant' },
-    { name: 'ISO 27001', subtitle: 'Certified' },
     { name: 'NSE', subtitle: 'Member' },
     { name: 'BSE', subtitle: 'Member' },
     { name: 'AMFI', subtitle: 'Registered' },
