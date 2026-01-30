@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const AlfaGlobalWealthAdvisorsPage = ({ theme = 'teal' }) => {
   // Teal theme configuration
   const t = { accentText: 'text-teal-600', accentBg: 'bg-teal-600', accentBgLight: 'bg-teal-50', gradient: 'from-teal-600 to-teal-700', heroBg: 'from-teal-950 via-slate-950 to-teal-950', accentHover: 'hover:bg-teal-700' };
+
+  const [calculatorValues, setCalculatorValues] = useState({ amount: 1000000, years: 10, rate: 12 });
+
+  const calculateReturns = () => {
+    const { amount, years, rate } = calculatorValues;
+    return Math.round(amount * Math.pow(1 + rate / 100, years));
+  };
 
   const coreOfferings = [
     { title: 'Wealth Creation & Management', desc: 'Comprehensive portfolio management and wealth building strategies tailored to your financial goals.' },
