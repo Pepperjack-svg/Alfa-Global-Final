@@ -55,8 +55,8 @@ const FAQsPage = ({ theme = 'teal' }) => {
 
   const whyChoose = [
     { title: 'Diversified Portfolio', desc: 'Diversified portfolio spanning finance, technology, agriculture, and security' },
-    { title: '25+ Years Experience', desc: '25+ years of leadership experience across industries and global markets' },
-    { title: '85% Repeat Engagement', desc: '85% repeat engagement rate, showcasing our trusted long term partnerships' },
+    { title: '30+ Years Experience', desc: '30+ years of leadership experience across industries and global markets' },
+    { title: 'Repeat Engagement', desc: 'Repeat engagement, showcasing our trusted long term partnerships' },
     { title: 'Client Centric Approach', desc: 'Client centric approach with tailored strategies for HNIs, enterprises, and institutions' },
     { title: 'Innovation Driven', desc: 'Innovation driven execution leveraging fintech, AI, and cyber technologies' }
   ];
