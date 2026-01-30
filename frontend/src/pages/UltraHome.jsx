@@ -108,11 +108,6 @@ const UltraHome = ({ theme = 'teal' }) => {
     { title: 'Global Economic Trends', category: 'Analysis', date: 'Oct 2024', image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400', read: '6 min' }
   ];
 
-  const calculateReturns = () => {
-    const { amount, years, rate } = calculatorValues;
-    return Math.round(amount * Math.pow(1 + rate / 100, years));
-  };
-
   useEffect(() => {
     const timer = setInterval(() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length), 5000);
     return () => clearInterval(timer);
