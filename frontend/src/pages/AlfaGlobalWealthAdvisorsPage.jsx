@@ -39,7 +39,7 @@ const AlfaGlobalWealthAdvisorsPage = ({ theme = 'teal' }) => {
         }}></div>
         
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 text-center">
-          <motion.img initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} src="https://websitesbytechpioneers.com/alfaglobalnew/image/alfa-global-advisor-logo.png" alt="Alfa Global Wealth Advisors" className="h-20 w-auto mx-auto mb-6" style={{ mixBlendMode: 'screen', filter: 'brightness(1.1)' }} />
+          <motion.img initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} src="https://websitesbytechpioneers.com/alfaglobalnew/image/alfa-global-advisor-logo.png" alt="Alfa Global Wealth Advisors" className="h-20 w-auto mx-auto mb-6 rounded-lg bg-white/90 p-2" />
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">Alfa Global Wealth Advisors</motion.h1>
           <p className="text-white/60 text-lg mb-8"></p>
           <a 
