@@ -87,12 +87,6 @@ const UltraHome = ({ theme = 'teal' }) => {
     { name: 'Olivia Bennett', role: 'Creative Director', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400' }
   ];
 
-  const testimonials = [
-    { content: "Alfa Global has transformed our investment strategy. Their expertise in global markets is unmatched.", author: "Suresh Mehta", role: "CEO, Mehta Industries", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150" },
-    { content: "Professional, transparent, and results-driven. The team's dedication made all the difference.", author: "Kavita Reddy", role: "Family Office Principal", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" },
-    { content: "Research-driven approach with consistent above-market returns. World-class experience.", author: "Amit Patel", role: "HNI Investor", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150" }
-  ];
-
   const faqs = [
     { q: "What is the minimum investment amount?", a: "Our services cater to HNIs with investable assets starting from ₹1 Crore." },
     { q: "How do you ensure portfolio security?", a: "We employ institutional-grade security with encrypted communications and segregated accounts." },
@@ -105,11 +99,6 @@ const UltraHome = ({ theme = 'teal' }) => {
     { title: 'Alternative Investments', category: 'Education', date: 'Nov 2024', image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400', read: '8 min' },
     { title: 'Global Economic Trends', category: 'Analysis', date: 'Oct 2024', image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400', read: '6 min' }
   ];
-
-  useEffect(() => {
-    const timer = setInterval(() => setActiveTestimonial((prev) => (prev + 1) % testimonials.length), 5000);
-    return () => clearInterval(timer);
-  }, [testimonials.length]);
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
