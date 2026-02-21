@@ -18,6 +18,7 @@ import AlfaZillionTradersPage from './pages/AlfaZillionTradersPage';
 import GazillionCapitalPage from './pages/GazillionCapitalPage';
 import MKDairyFarmsPage from './pages/MKDairyFarmsPage';
 import CyberhakzPage from './pages/CyberhakzPage';
+import DhanveirGroupsShippingPage from './pages/DhanveirGroupsShippingPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import TeamPage from './pages/TeamPage';
