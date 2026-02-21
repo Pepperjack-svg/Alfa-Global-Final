@@ -87,7 +87,7 @@ const DhanveirGroupsShippingPage = ({ theme = 'teal' }) => {
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <img src="https://images.pexels.com/photos/2131604/pexels-photo-2131604.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ship Operations" className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
+              <img src="https://images.pexels.com/photos/29805443/pexels-photo-29805443.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Ship Bridge Control Room" className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
             </motion.div>
           </div>
         </div>
