@@ -53,6 +53,7 @@ function App() {
             <Route path="/gazillion-capital" element={<GazillionCapitalPage theme={theme} />} />
             <Route path="/mk-dairy-farms" element={<MKDairyFarmsPage theme={theme} />} />
             <Route path="/cyberhakz" element={<CyberhakzPage theme={theme} />} />
+            <Route path="/dhanveir-groups-shipping" element={<DhanveirGroupsShippingPage theme={theme} />} />
             {/* Legal Pages */}
             <Route path="/privacy" element={<PrivacyPage theme={theme} />} />
             <Route path="/terms" element={<TermsPage theme={theme} />} />
