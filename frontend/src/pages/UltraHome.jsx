@@ -42,13 +42,6 @@ const UltraHome = ({ theme = 'teal' }) => {
   // Services from reference site - exact content
   const services = [
     {
-      icon: 'https://websitesbytechpioneers.com/alfaglobalnew/image/investment-chart.png',
-      title: 'Alternative Investments & Funds',
-      desc: 'Structured investment platforms, AIFs, hedge-style LLPs, and specialized capital strategies.',
-      features: ['Private Equity Funds', 'Hedge Fund Strategies', 'Alternative Investment Funds', 'Structured Products'],
-      image: 'https://images.unsplash.com/photo-1758518729696-884228731fce?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzR8MHwxfHNlYXJjaHwxfHxmaW5hbmNpYWwlMjBhbmFseXNpcyUyMGJ1c2luZXNzJTIwbWVldGluZyUyMGNoYXJ0c3xlbnwwfHx8fDE3Njg2NTk3NDd8MA&ixlib=rb-4.1.0&q=85'
-    },
-    {
       icon: 'https://websitesbytechpioneers.com/alfaglobalnew/image/strategic-partnerships.png',
       title: 'Strategic Ventures & Holdings',
       desc: 'Proprietary investments in companies, joint ventures, and scalable businesses across sectors.',
@@ -64,9 +57,9 @@ const UltraHome = ({ theme = 'teal' }) => {
     },
     {
       icon: 'https://websitesbytechpioneers.com/alfaglobalnew/image/partnership.png',
-      title: 'Global Partnerships & Advisory',
+      title: 'Global Partnerships',
       desc: 'Cross-border alliances, family office structures, and institutional collaborations.',
-      features: ['Family Office Services', 'Cross-Border M&A', 'Strategic Advisory', 'Institutional Consulting'],
+      features: ['Family Office Services', 'Cross-Border M&A', 'Strategic Consulting', 'Institutional Consulting'],
       image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800'
     }
   ];
