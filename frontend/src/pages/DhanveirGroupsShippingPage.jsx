@@ -37,11 +37,7 @@ const DhanveirGroupsShippingPage = ({ theme = 'teal' }) => {
         }}></div>
         
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 text-center">
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="w-20 h-20 mx-auto mb-6 bg-white/90 rounded-lg p-3 flex items-center justify-center">
-            <svg className="w-12 h-12 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
-            </svg>
-          </motion.div>
+          <motion.img initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} src="https://customer-assets.emergentagent.com/job_6f794281-58c6-49fc-b709-257edb9b4cc6/artifacts/2dga5rwa_dhanveir.png" alt="Dhanveir Groups Shipping" className="h-20 w-auto mx-auto mb-6 rounded-lg bg-white/90 p-2" />
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">Dhanveir Groups Shipping</motion.h1>
           <p className="text-white/80 text-lg mb-8">Strategic Maritime Platform | Indian-Flagged Vessel Operations</p>
           <a 
