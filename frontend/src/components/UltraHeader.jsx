@@ -29,7 +29,6 @@ const UltraHeader = ({ theme = 'teal' }) => {
     { label: 'Strategy', path: '/strategy' },
     { label: 'Global Access', path: '/global-access' },
     { label: 'Team', path: '/team' },
-    { label: 'FAQs', path: '/faqs' },
     { label: 'Contact', path: '/contact' }
   ];
 
