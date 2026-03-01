@@ -79,13 +79,6 @@ const UltraHome = ({ theme = 'teal' }) => {
     { name: 'Olivia Bennett', role: 'Creative Director', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400' }
   ];
 
-  const faqs = [
-    { q: "What is the minimum investment amount?", a: "Our services cater to HNIs with investable assets starting from ₹1 Crore." },
-    { q: "How do you ensure portfolio security?", a: "We employ institutional-grade security with encrypted communications and segregated accounts." },
-    { q: "What are your fee structures?", a: "Transparent fee model combining asset-based fees and performance-linked incentives." },
-    { q: "How often will I receive updates?", a: "Monthly reports, quarterly reviews, and 24/7 portal access." }
-  ];
-
   const insights = [
     { title: 'Market Outlook 2025', category: 'Research', date: 'Dec 2024', image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=400', read: '5 min' },
     { title: 'Alternative Investments', category: 'Education', date: 'Nov 2024', image: 'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400', read: '8 min' },
