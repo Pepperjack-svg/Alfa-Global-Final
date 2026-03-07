@@ -7,7 +7,7 @@ const GlobalAccessPage = ({ theme = 'teal' }) => {
   const t = { accentText: 'text-teal-600', accentBg: 'bg-teal-600', accentBgLight: 'bg-teal-50', accentBorder: 'border-teal-200', gradient: 'from-teal-600 to-teal-700', heroBg: 'from-teal-950 via-slate-950 to-teal-950', heroAccent: 'text-teal-400' };
 
   const accessAreas = [
-    { title: 'Financial Markets & Wealth Advisory Access', company: 'Through Alfa Global Wealth Advisors and Gazillion Capital', items: ['Access to global financial instruments', 'Cross border wealth advisory and planning', 'Entry into exclusive private equity and strategic investments'] },
+    { title: 'Financial Markets & Wealth Access', company: 'Through Alfa Global Wealth Advisors and Gazillion Capital', items: ['Access to global financial instruments', 'Cross border wealth advisory and planning', 'Entry into exclusive private equity and strategic investments'] },
     { title: 'Fintech & Trading Platforms', company: 'With Alfa Zillion Traders LLP', items: ['AI driven fintech trading platforms', 'Alpha engineered trading strategies for select global partners', 'Access to emerging markets and high value opportunities'] },
     { title: 'Global Trade in Agriculture & Resources', company: 'Through MK Dairy Farms Pvt Ltd', items: ['Sustainable agricultural practices aligned with international standards', 'Export ready products for global markets', 'Partnerships that strengthen the global agri trade ecosystem'] },
     { title: 'Cyber Security Without Borders', company: 'Cyberhakz Pvt Ltd provides', items: ['Enterprise grade cyber security solutions tailored for global operations', 'Compliance with international regulations (GDPR, ISO, HIPAA, etc.)', 'Threat detection and prevention for multinational corporations'] }

@@ -11,7 +11,7 @@ from datetime import datetime
 import uuid
 
 # Use the production URL from frontend/.env
-BASE_URL = "https://alfa-biz.preview.emergentagent.com/api"
+BASE_URL = "https://alfa-global-preview.preview.emergentagent.com/api"
 
 class APITester:
     def __init__(self):

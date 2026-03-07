@@ -9,28 +9,28 @@ const ClientTestimonials = ({ theme = 'teal' }) => {
     {
       name: 'Rajesh Sharma',
       role: 'CEO, TechVentures India',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
+      image: 'https://images.unsplash.com/photo-1742119971773-57e0131095b0?w=100&h=100&fit=crop&crop=face',
       content: 'Alfa Global Wealth Advisors transformed our investment strategy. Their personalized approach and deep market insights helped us achieve 35% portfolio growth in just 18 months.',
       rating: 5
     },
     {
       name: 'Priya Patel',
       role: 'Managing Director, Patel Holdings',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face',
+      image: 'https://images.unsplash.com/photo-1669659033487-203d254e35a4?w=100&h=100&fit=crop&crop=face',
       content: 'The team at Alfa Star Dynamics demonstrated exceptional expertise in private equity. Their strategic guidance in our maritime investments exceeded all expectations.',
       rating: 5
     },
     {
-      name: 'Michael Chen',
-      role: 'Founder, Chen Capital',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
+      name: 'Suresh Menon',
+      role: 'Founder, Menon Capital',
+      image: 'https://images.unsplash.com/photo-1737574994780-e31827afaed7?w=100&h=100&fit=crop&crop=face',
       content: 'Working with Gazillion Capital has been a game-changer. Their investor education programs and product distribution network are unmatched in the industry.',
       rating: 5
     },
     {
       name: 'Anita Desai',
       role: 'CFO, Global Enterprises',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
+      image: 'https://images.unsplash.com/photo-1528082414335-adbd64f18d12?w=100&h=100&fit=crop&crop=face',
       content: 'Cyberhakz provided enterprise-grade security solutions that protected our business from multiple cyber threats. Their proactive approach is truly commendable.',
       rating: 5
     }

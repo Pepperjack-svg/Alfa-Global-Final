@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field, EmailStr
 from typing import Optional
-from datetime import datetime
+from datetime import datetime, timezone
 import uuid
 
 # Contact Form Model
@@ -21,7 +21,7 @@ class Contact(BaseModel):
     areaOfInterest: str
     message: str
     status: str = Field(default="new")
-    createdAt: datetime = Field(default_factory=datetime.utcnow)
+    createdAt: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 # Newsletter Subscription Model
 class NewsletterCreate(BaseModel):
@@ -30,7 +30,7 @@ class NewsletterCreate(BaseModel):
 class Newsletter(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     email: str
-    subscribedAt: datetime = Field(default_factory=datetime.utcnow)
+    subscribedAt: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     status: str = Field(default="active")
 
 # Testimonial Model
@@ -48,7 +48,7 @@ class Testimonial(BaseModel):
     content: str
     rating: int
     active: bool = True
-    createdAt: datetime = Field(default_factory=datetime.utcnow)
+    createdAt: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 # Insight/Blog Model
 class InsightCreate(BaseModel):
@@ -66,6 +66,6 @@ class Insight(BaseModel):
     content: str
     category: str
     readTime: str
-    date: datetime = Field(default_factory=datetime.utcnow)
+    date: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     published: bool = True
-    createdAt: datetime = Field(default_factory=datetime.utcnow)
+    createdAt: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))

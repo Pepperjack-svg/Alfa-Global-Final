@@ -22,7 +22,7 @@ const TeamPage = ({ theme = 'teal' }) => {
     { 
       name: 'Vikram Patel', 
       role: 'Head of Strategy', 
-      image: 'https://images.pexels.com/photos/19746166/pexels-photo-19746166.jpeg?auto=compress&cs=tinysrgb&w=400',
+      image: 'https://images.unsplash.com/photo-1771244678811-50c22f17c791?w=400',
       description: 'Specializes in cross-border alliances and institutional collaborations with expertise in emerging markets.'
     },
     { 

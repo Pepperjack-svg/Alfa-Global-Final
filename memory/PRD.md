@@ -1,7 +1,7 @@
 # Alfa Global Group Website - Product Requirements Document
 
 ## Original Problem Statement
-Build a premium, professional website for "Alfa Global Group" - a diversified global organization with business interests in wealth management, private equity, fintech trading, financial product distribution, agriculture, and cyber security.
+Build a premium, professional website for "Alfa Global Group" - a diversified global organization with business interests in wealth management, private equity, fintech trading, financial product distribution, agriculture, cyber security, and shipping.
 
 ## User Personas
 - **High Net Worth Individuals (HNIs)**: Looking for wealth management and investment advisory services
@@ -12,125 +12,118 @@ Build a premium, professional website for "Alfa Global Group" - a diversified gl
 ## Core Requirements
 
 ### Pages Structure
-1. **Home** (`/`) - Hero section, performance stats, company overview, trust badges
+1. **Home** (`/`) - Hero section, performance stats, company overview, services
 2. **About** (`/about`) - Company history, vision, mission, group companies overview
-3. **Services** (`/services`) - 7 service categories across all business verticals
-4. **Strategy** (`/strategy`) - 5 strategic pillars, execution methods, performance stats
+3. **Services** (`/services`) - Service categories across all business verticals
+4. **Strategy** (`/strategy`) - Strategic pillars, execution methods, performance stats
 5. **Global Access** (`/global-access`) - International presence, regional access areas
-6. **FAQs** (`/faqs`) - 6 FAQ categories with expandable accordions
-7. **Contact** (`/contact`) - Contact form, phone, email, office address, map
+6. **Team** (`/team`) - 6 team members with Indian origin profiles
+7. **Contact** (`/contact`) - Contact form, phone, email, office address
+8. **Privacy** (`/privacy`) - Privacy policy
+9. **Terms** (`/terms`) - Terms of service
 
 ### Company Pages (Dropdown Menu)
-8. **Alfa Global Wealth Advisors** (`/alfa-global-wealth-advisors`) - Wealth management arm
-9. **Alfa Star Dynamics** (`/alfa-star-dynamics`) - Private equity & capital investments
-10. **Alfa Zillion Traders** (`/alfa-zillion-traders`) - Fintech trading platform
-11. **Gazillion Capital** (`/gazillion-capital`) - Financial product distribution
-12. **MK Dairy Farms** (`/mk-dairy-farms`) - Agriculture & natural resources
-13. **Cyberhakz** (`/cyberhakz`) - Enterprise cybersecurity solutions
+10. **Alfa Global Wealth Advisors** (`/alfa-global-wealth-advisors`) - Wealth management arm
+11. **Alfa Star Dynamics** (`/alfa-star-dynamics`) - Private equity & capital investments
+12. **Alfa Zillion Traders** (`/alfa-zillion-traders`) - Fintech trading platform
+13. **Gazillion Capital** (`/gazillion-capital`) - Financial product distribution + Regulated & Certified By section
+14. **MK Dairy Farms** (`/mk-dairy-farms`) - Agriculture & natural resources
+15. **Cyberhakz** (`/cyberhakz`) - Enterprise cybersecurity solutions
+16. **Dhanveir Groups Shipping** (`/dhanveir-groups-shipping`) - Maritime shipping services
 
 ### Design Requirements
 - Premium, professional look with dark hero sections
-- Theme switcher (Gold, Silver, Purple, Teal)
+- Standardized Teal color theme (no theme switching)
 - 3D Globe preloader animation
 - Responsive design for mobile/tablet/desktop
 - Animated sections with Framer Motion
+- text-justify alignment throughout
+- Indian origin stock photos for all people images
 
-## What's Been Implemented (January 2026)
+## What's Been Implemented
 
 ### Completed Features
-- [x] Full site structure with 15+ pages
-- [x] Header with dropdown menu for 6 company pages
+- [x] Full site structure with 16+ pages
+- [x] Header with dropdown menu for 7 company pages
 - [x] Footer with complete links and contact info
-- [x] Home page with hero, stats, awards, trusted by section
-- [x] About page with company info, vision/mission, companies grid
-- [x] Services page with 7 service categories
-- [x] Strategy page with 5 strategic pillars
-- [x] Global Access page with international reach info
-- [x] FAQs page with 6 expandable FAQ categories
-- [x] Contact page with form and contact details
-- [x] All 6 company pages with full content
-- [x] Theme switcher (4 themes)
+- [x] All company pages with full content from reference site
+- [x] Teal theme standardized (theme switching removed)
 - [x] 3D Globe preloader
 - [x] Mobile responsive navigation
-- [x] All content populated from reference website
-- [x] **Working images on all company pages** (replaced broken external URLs with Unsplash)
-- [x] **Hero CTAs on all company pages** - Single "Find out More" button linking to external company websites
-- [x] **Hero banner transparency effect** - Subtle grid pattern + radial gradients on dark hero sections
-- [x] **Text justification** applied throughout all pages
-- [x] **LLP and Pvt Ltd removed** from all company page titles
-- [x] **Indian origin people images** used on company and team pages
-- [x] **Team page** created at /team with 6 team members
-- [x] **Team link** added to navigation header
-- [x] **Newsletter subscription** with backend API (POST /api/newsletter)
-- [x] **WhatsApp floating chat button** for instant customer contact
-- [x] **Back to Top button** appears on scroll
-- [x] **Cookie consent banner** with localStorage persistence
-- [x] **Scroll progress indicator** at top of page
-- [x] **Client testimonials section** with 4 testimonials, star ratings, and trust stats
-- [x] **Partners/Certifications section** (SEBI, ISO 27001, NSE, BSE, AMFI, NSDL, CDSL)
-- [x] **Service Highlights section** with 4 clickable cards linking to company pages
-- [x] **Privacy Policy page** at /privacy
-- [x] **Terms of Service page** at /terms
-- [x] **Codebase cleanup** - Removed 25+ obsolete component/page files
-- [x] **COMPANY PAGES CONTENT UPDATED (Jan 21, 2026)** - All 6 company pages updated with EXACT content from reference website:
-  - Alfa Global Wealth Advisors: Core offerings, identity & reach, Alfa Global Access section
-  - Alfa Star Dynamics: High conviction PE, capital markets, maritime services, sectoral exposure
-  - Alfa Zillion Traders: Investment philosophy, fund management, enhanced portfolios
-  - Gazillion Capital: Wealth distribution, private wealth, broking, investor education
-  - MK Dairy Farms: Dairy/agricultural/natural resources products
-  - Cyberhakz: Penetration testing, threat detection, incident response
-
-### Testing Status
-- Frontend: 100% PASS (all 13 pages tested)
-- Navigation: PASS (dropdown, mobile menu, footer links)
-- Responsiveness: PASS
+- [x] Text justification applied site-wide
+- [x] Indian origin stock photos for all people images (Team, Home, Testimonials)
+- [x] Team page with 6 Indian team members
+- [x] Client testimonials with Indian names and photos
+- [x] Newsletter subscription with backend API
+- [x] Contact form saving to MongoDB (POST /api/contact) - WORKING
+- [x] WhatsApp floating chat button
+- [x] Cookie consent banner
+- [x] Scroll progress indicator
+- [x] Back to top button
+- [x] Partners/Certifications section on Gazillion Capital page only
+- [x] Privacy Policy and Terms pages
+- [x] Dhanveir Groups Shipping page with transparent logo
+- [x] FAQs page and links completely removed
+- [x] "Financial Markets & Wealth Access" (removed "Advisory") on Global Access page
+- [x] Investment calculator moved to Alfa Global Wealth Advisors page
+- [x] Homepage sections cleaned up (testimonials, stats counters, badges removed)
+- [x] "THE ALFA ADVANTAGE" section on homepage
+- [x] Codebase cleanup - removed obsolete files
 
 ## Tech Stack
 - **Frontend**: React, React Router, Tailwind CSS, Framer Motion, Three.js
-- **Backend**: FastAPI (for contact form API)
+- **Backend**: FastAPI, Motor (async MongoDB driver)
 - **Database**: MongoDB
 
 ## Architecture
 ```
 /app
 ├── backend/
-│   ├── routes/contact.py
+│   ├── routes/
+│   │   ├── contact.py
+│   │   ├── newsletter.py
+│   │   ├── testimonials.py
+│   │   └── insights.py
+│   ├── models.py
 │   └── server.py
 └── frontend/src/
     ├── components/
     │   ├── UltraHeader.jsx
     │   ├── UltraFooter.jsx
-    │   └── Globe3DPreloader.jsx
+    │   ├── Globe3DPreloader.jsx
+    │   ├── ClientTestimonials.jsx
+    │   └── ProfessionalSections.jsx
     ├── pages/
     │   ├── UltraHome.jsx
     │   ├── AboutPage.jsx
     │   ├── ServicesPage.jsx
     │   ├── StrategyPage.jsx
     │   ├── GlobalAccessPage.jsx
-    │   ├── FAQsPage.jsx
+    │   ├── TeamPage.jsx
     │   ├── PremiumContact.jsx
     │   ├── AlfaGlobalWealthAdvisorsPage.jsx
     │   ├── AlfaStarDynamicsPage.jsx
     │   ├── AlfaZillionTradersPage.jsx
     │   ├── GazillionCapitalPage.jsx
     │   ├── MKDairyFarmsPage.jsx
-    │   └── CyberhakzPage.jsx
+    │   ├── CyberhakzPage.jsx
+    │   ├── DhanveirGroupsShippingPage.jsx
+    │   ├── PrivacyPage.jsx
+    │   └── TermsPage.jsx
     └── App.js
 ```
 
-## Pending Tasks
-
-### P1 - Contact Form Email (Optional)
-- Implement SMTP email logic using Resend integration (user opted to skip for now)
-- Backend API endpoint exists and saves to database, just doesn't send emails
-
 ## API Endpoints
-- `POST /api/contact` - Contact form submission (saves to DB, email not sent)
-- `POST /api/newsletter` - Newsletter subscription
-- `GET /api/newsletter` - Get all subscribers
+- `POST /api/contact` - Contact form submission (saves to MongoDB)
+- `GET /api/contact` - Get all contact submissions
+- `POST /api/subscribe` - Newsletter subscription
 - `GET /api/testimonials` - Get testimonials
 - `GET /api/insights` - Get insights
 
+## Pending/Future Tasks
+- Contact form email notifications (optional - currently saves to DB only)
+- Additional UI refinements based on user feedback
+- SEO optimization
+
 ## Known Issues
-- External images from reference website may load slowly
 - Contact form stores data but doesn't send email notifications

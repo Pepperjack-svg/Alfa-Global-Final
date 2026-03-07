@@ -59,7 +59,7 @@ const UltraHome = ({ theme = 'teal' }) => {
       title: 'Global Partnerships',
       desc: 'Cross-border alliances, family office structures, and institutional collaborations.',
       features: ['Family Office Services', 'Cross-Border M&A', 'Strategic Consulting', 'Institutional Consulting'],
-      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800'
+      image: 'https://images.unsplash.com/photo-1563457039413-0c39b8e8963d?w=800'
     }
   ];
 
@@ -73,10 +73,10 @@ const UltraHome = ({ theme = 'teal' }) => {
   ];
 
   const team = [
-    { name: 'Jordan Lee', role: 'Head of Creative', image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400' },
-    { name: 'Chloe Tan', role: 'Senior SEO Specialist', image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400' },
-    { name: 'Daniel Cruz', role: 'Performance Marketing Lead', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400' },
-    { name: 'Olivia Bennett', role: 'Creative Director', image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400' }
+    { name: 'Vikram Singh', role: 'Head of Investments', image: 'https://images.unsplash.com/photo-1771244678811-50c22f17c791?w=400' },
+    { name: 'Meera Krishnan', role: 'Senior Analyst', image: 'https://images.pexels.com/photos/7580822/pexels-photo-7580822.jpeg?auto=compress&cs=tinysrgb&w=400' },
+    { name: 'Amit Deshmukh', role: 'Portfolio Manager', image: 'https://images.pexels.com/photos/7580918/pexels-photo-7580918.jpeg?auto=compress&cs=tinysrgb&w=400' },
+    { name: 'Kavita Iyer', role: 'Director - Strategy', image: 'https://images.unsplash.com/photo-1770627016447-cb9d29ed0398?w=400' }
   ];
 
   const insights = [
