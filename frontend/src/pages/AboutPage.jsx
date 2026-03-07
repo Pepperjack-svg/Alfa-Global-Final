@@ -13,7 +13,7 @@ const AboutPage = ({ theme = 'teal' }) => {
     { name: 'Gazillion Capital', logo: 'https://websitesbytechpioneers.com/alfaglobalnew/image/gazillon-logo-removebg-preview.png', desc: 'Innovating the future of wealth through distribution, broking, and investor education. Gazillion Capital is committed to creating access to next gen financial products that empower investors to make informed decisions.', link: '/gazillion-capital' },
     { name: 'MK Dairy Farms', logo: 'https://websitesbytechpioneers.com/alfaglobalnew/image/mk-dailry-farms-logo.png', desc: 'A pioneer in agriculture and natural resources distribution. With a focus on innovation and sustainability, MK Dairy Farms connects quality produce with markets while supporting rural economies.', link: '/mk-dairy-farms' },
     { name: 'Cyberhakz', logo: 'https://websitesbytechpioneers.com/alfaglobalnew/image/cyberhakz-logo-removebg-preview.png', desc: 'Delivering enterprise grade cyber security solutions to safeguard businesses against evolving digital threats. From infrastructure security to compliance, Cyberhakz ensures organizations remain secure in a connected world.', link: '/cyberhakz' },
-    { name: 'Dhanveir Groups Shipping', logo: 'https://customer-assets.emergentagent.com/job_6f794281-58c6-49fc-b709-257edb9b4cc6/artifacts/2dga5rwa_dhanveir.png', desc: 'The Group\'s strategic maritime platform, established to build, own, and operate Indian-flagged vessels across key cargo segments including dry bulk transportation of sand, coal, and minerals.', link: '/dhanveir-groups-shipping' }
+    { name: 'Dhanveir Groups Shipping', logo: 'https://customer-assets.emergentagent.com/job_6f794281-58c6-49fc-b709-257edb9b4cc6/artifacts/2dga5rwa_dhanveir.png', logoBg: true, desc: 'The Group\'s strategic maritime platform, established to build, own, and operate Indian-flagged vessels across key cargo segments including dry bulk transportation of sand, coal, and minerals.', link: '/dhanveir-groups-shipping' }
   ];
 
   const whyChoose = [
@@ -93,7 +93,7 @@ const AboutPage = ({ theme = 'teal' }) => {
             {companies.map((company, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className={`p-6 rounded-2xl border ${t.accentBorder} hover:shadow-xl transition-all group`}>
                 {company.logo ? (
-                  <img src={company.logo} alt={company.name} className="h-16 w-auto mb-4 object-contain" />
+                  <img src={company.logo} alt={company.name} className={`h-16 w-auto mb-4 object-contain ${company.logoBg ? 'bg-slate-800 rounded-lg p-2' : ''}`} />
                 ) : (
                   <div className={`h-16 w-16 mb-4 ${t.accentBg} rounded-lg flex items-center justify-center`}>
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
