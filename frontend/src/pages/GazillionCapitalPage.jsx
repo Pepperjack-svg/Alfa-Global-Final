@@ -112,10 +112,10 @@ const GazillionCapitalPage = ({ theme = 'teal' }) => {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <img src="https://websitesbytechpioneers.com/alfaglobalnew/image/Clousys%20Images-13.jpg" alt="Gazillion Services" className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
+              <img src="https://static.prod-images.emergentagent.com/jobs/9d0cdaeb-5a99-4d15-9a0a-459e9e0b885c/images/8df3010dfa69d83fbba688213d2865dcbef9aa956fdb6c520db7ce0da725a6f3.png" alt="Gazillion Services" className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-              <img src="https://websitesbytechpioneers.com/alfaglobalnew/image/Clousys%20Images-14.jpg" alt="Gazillion Platform" className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
+              <img src="https://static.prod-images.emergentagent.com/jobs/9d0cdaeb-5a99-4d15-9a0a-459e9e0b885c/images/af5f4527cb96fde6f01a82dfacd99dbeb3db4d41aeefc404f3dbddf952e41fec.png" alt="Gazillion Platform" className="rounded-2xl shadow-xl w-full h-[350px] object-cover" />
             </motion.div>
           </div>
         </div>

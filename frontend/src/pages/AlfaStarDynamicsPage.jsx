@@ -107,10 +107,10 @@ const AlfaStarDynamicsPage = ({ theme = 'teal' }) => {
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <img src="https://websitesbytechpioneers.com/alfaglobalnew/image/high-conviction-1.png" alt="High Conviction Investment" className="rounded-2xl shadow-xl w-full h-[300px] object-cover" />
+              <img src="https://static.prod-images.emergentagent.com/jobs/9d0cdaeb-5a99-4d15-9a0a-459e9e0b885c/images/de53560c83050cba010874b5494e1a5245d1b1064b954fd59364419c927b1ad0.png" alt="High Conviction Investment" className="rounded-2xl shadow-xl w-full h-[300px] object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-              <img src="https://websitesbytechpioneers.com/alfaglobalnew/image/high-conviction-2.png" alt="Investment Strategy" className="rounded-2xl shadow-xl w-full h-[300px] object-cover" />
+              <img src="https://static.prod-images.emergentagent.com/jobs/9d0cdaeb-5a99-4d15-9a0a-459e9e0b885c/images/ee5ecde99a997ab4399d1ada872833783e7723afca53c9aef575ce2a019baabc.png" alt="Investment Strategy" className="rounded-2xl shadow-xl w-full h-[300px] object-cover" />
             </motion.div>
           </div>
         </div>

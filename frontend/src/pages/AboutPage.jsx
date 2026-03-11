@@ -40,7 +40,7 @@ const AboutPage = ({ theme = 'teal' }) => {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <img src="https://websitesbytechpioneers.com/alfaglobalnew/image/who%20we%20are-01.png" alt="Who We Are" className="rounded-2xl shadow-xl w-full" />
+              <img src="https://static.prod-images.emergentagent.com/jobs/9d0cdaeb-5a99-4d15-9a0a-459e9e0b885c/images/9d7c12d3944451d05017673e52e286d2785ed291290853b0b4905e52dec5ccd5.png" alt="Who We Are" className="rounded-2xl shadow-xl w-full" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <span className={`${t.accentText} text-sm font-semibold tracking-widest uppercase`}>About Us</span>

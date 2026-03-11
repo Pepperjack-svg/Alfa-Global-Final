@@ -60,7 +60,7 @@ const AlfaGlobalWealthAdvisorsPage = ({ theme = 'teal' }) => {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <img src="https://websitesbytechpioneers.com/alfaglobalnew/image/alfa-global-wealth-advisors.png" alt="Alfa Global Wealth Advisors" className="rounded-2xl shadow-xl w-full h-[400px] object-cover" />
+              <img src="https://static.prod-images.emergentagent.com/jobs/9d0cdaeb-5a99-4d15-9a0a-459e9e0b885c/images/30ee92d8fd38e4ef1cd802b9be5472be1101dbb720790cb5a829cc8f6e3da856.png" alt="Alfa Global Wealth Advisors" className="rounded-2xl shadow-xl w-full h-[400px] object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <span className={`${t.accentText} text-sm font-semibold tracking-widest uppercase`}>Over a Decade of Experience</span>

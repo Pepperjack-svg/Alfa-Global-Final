@@ -81,7 +81,7 @@ const AlfaZillionTradersPage = ({ theme = 'teal' }) => {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <img src="https://websitesbytechpioneers.com/alfaglobalnew/image/partnering-growth.png" alt="Partnering Growth" className="rounded-2xl shadow-xl w-full h-[400px] object-cover" />
+              <img src="https://static.prod-images.emergentagent.com/jobs/9d0cdaeb-5a99-4d15-9a0a-459e9e0b885c/images/9edec9684205cf32f23e3ab2aae9af838159c1a121c5cd3af47e9a0bbf81009a.png" alt="Partnering Growth" className="rounded-2xl shadow-xl w-full h-[400px] object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <span className={`${t.accentText} text-sm font-semibold tracking-widest uppercase`}>SEBI Aligned Multi-Disciplinary Platform</span>

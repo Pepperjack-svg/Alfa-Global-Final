@@ -45,7 +45,7 @@ const UltraHome = ({ theme = 'teal' }) => {
       title: 'Strategic Ventures & Holdings',
       desc: 'Proprietary investments in companies, joint ventures, and scalable businesses across sectors.',
       features: ['Direct Equity Investments', 'Joint Venture Partnerships', 'Growth Capital', 'Management Buyouts'],
-      image: 'https://websitesbytechpioneers.com/alfaglobalnew/image/wealth-management.jpg'
+      image: 'https://static.prod-images.emergentagent.com/jobs/9d0cdaeb-5a99-4d15-9a0a-459e9e0b885c/images/0010f7ee9798ab61a3077ea085b3679c300267801248f42b6f4097bbd5676a5d.png'
     },
     {
       icon: 'https://websitesbytechpioneers.com/alfaglobalnew/image/project%20(1).png',
@@ -208,7 +208,7 @@ const UltraHome = ({ theme = 'teal' }) => {
             </motion.div>
             
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <img src="https://websitesbytechpioneers.com/alfaglobalnew/image/financial-advisory.jpg" alt="Financial Advisory" className="rounded-2xl shadow-2xl w-full" />
+              <img src="https://static.prod-images.emergentagent.com/jobs/9d0cdaeb-5a99-4d15-9a0a-459e9e0b885c/images/20327903923c4ebb76f605080941a3f9bafcd9f5abd68bc14b148bbf168c8646.png" alt="Financial Advisory" className="rounded-2xl shadow-2xl w-full" />
             </motion.div>
           </div>
         </div>
