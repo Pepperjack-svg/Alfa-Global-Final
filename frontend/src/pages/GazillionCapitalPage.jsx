@@ -70,7 +70,7 @@ const GazillionCapitalPage = ({ theme = 'teal' }) => {
         }}></div>
         
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 text-center">
-          <motion.img initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} src="https://websitesbytechpioneers.com/alfaglobalnew/image/Gazillion_LOGO.png" alt="Gazillion Capital" className="h-20 w-auto mx-auto mb-6 rounded-lg bg-white/90 p-2" />
+          <motion.img initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} src="https://websitesbytechpioneers.com/alfaglobalnew/image/Gazillion_LOGO.png" alt="Gazillion Capital" className="h-20 w-auto mx-auto mb-6" />
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">Gazillion Capital</motion.h1>
           <p className="text-white/80 text-lg mb-8">Strategic Wealth Product Distribution, Private Wealth & Broking Solutions</p>
           <a 

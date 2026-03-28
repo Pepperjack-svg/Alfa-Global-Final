@@ -38,7 +38,6 @@ const DhanveirGroupsShippingPage = ({ theme = 'teal' }) => {
         
         <div className="relative max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 text-center">
           <motion.img initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} src="https://customer-assets.emergentagent.com/job_6f794281-58c6-49fc-b709-257edb9b4cc6/artifacts/2dga5rwa_dhanveir.png" alt="Dhanveir Groups Shipping" className="h-24 w-auto mx-auto mb-6" style={{ filter: 'brightness(1.1) drop-shadow(0 0 10px rgba(255,255,255,0.3))' }} />
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">Dhanveir Groups Shipping</motion.h1>
           <p className="text-white/80 text-lg mb-8">Strategic Maritime Platform | Indian-Flagged Vessel Operations</p>
           <a 
             href="/contact" 
