@@ -9,7 +9,7 @@ const TeamPage = ({ theme = 'teal' }) => {
   const team = [
     {
       name: 'Hariharan Ramachandran',
-      role: 'Principal Fund Manager & Advisory Board Member',
+      role: 'MD and CEO',
       image: '/team/hariharan.jpeg',
       shortBio: 'A highly accomplished finance professional with over three decades of international experience in fund management, portfolio construction, capital markets, and financial analysis across various sectors.',
       fullBio: `Mr. Hariharan Ramachandran is a highly accomplished finance professional with over three decades of international experience in fund management, portfolio construction, capital markets, and financial analysis. His multi-sectoral expertise spans technology, financial services, healthcare, oil & gas, and real estate, offering a comprehensive perspective on global capital allocation strategies and macro-financial frameworks.
