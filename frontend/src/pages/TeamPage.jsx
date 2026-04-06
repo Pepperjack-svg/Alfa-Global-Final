@@ -191,7 +191,7 @@ Committed to continuous professional development, he actively seeks opportunitie
     },
     {
       name: 'Hemalatha Karthikeyan',
-      role: 'Sec to MD & HR',
+      role: 'Secretary to MD & HR',
       image: '/team/hemalatha.jpeg',
       shortBio: 'An enterprising professional with over four years of experience in followership, leadership, and entrepreneurship, holding a Master\'s degree in Mathematics.',
       fullBio: `Mrs. Hemalatha Karthikeyan brings over four years of professional experience spanning followership, leadership, and entrepreneurship. She possesses a Master's degree in Mathematics, which strengthens her analytical and problem-solving capabilities and supports her structured approach to management and decision-making.
