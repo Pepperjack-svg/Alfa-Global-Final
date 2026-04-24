@@ -3,6 +3,6 @@
     "buildCommand": "yarn build"
   },
   "deploy": {
-    "startCommand": "npx serve -s dist -l $PORT"
+    "startCommand": "npx serve -s dist"
   }
 }
