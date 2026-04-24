@@ -13,7 +13,7 @@ L.Icon.Default.mergeOptions({
 });
 
 const PremiumContact = ({ theme = 'teal' }) => {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', service: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', companyType: '', areaOfInterest: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
@@ -56,7 +56,7 @@ const PremiumContact = ({ theme = 'teal' }) => {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+        setFormData({ name: '', email: '', phone: '', companyType: '', areaOfInterest: '', message: '' });
       } else {
         setSubmitStatus('error');
       }
@@ -135,20 +135,34 @@ const PremiumContact = ({ theme = 'teal' }) => {
                     />
                   </div>
                   <div>
-                    <label className="text-white/70 text-sm mb-2 block">Service Interest</label>
+                    <label className="text-white/70 text-sm mb-2 block">Company Type *</label>
                     <select
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      required
+                      value={formData.companyType}
+                      onChange={(e) => setFormData({ ...formData, companyType: e.target.value })}
                       className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-purple-500 transition-colors"
                     >
-                      <option value="" className="bg-gray-900">Select a service</option>
-                      <option value="wealth" className="bg-gray-900">Wealth Management</option>
-                      <option value="advisory" className="bg-gray-900">Investment Advisory</option>
-                      <option value="family" className="bg-gray-900">Family Office</option>
-                      <option value="portfolio" className="bg-gray-900">Portfolio Management</option>
-                      <option value="other" className="bg-gray-900">Other</option>
+                      <option value="" className="bg-gray-900">Select type</option>
+                      {companyTypes.map((t) => (
+                        <option key={t} value={t} className="bg-gray-900">{t}</option>
+                      ))}
                     </select>
                   </div>
+                </div>
+
+                <div>
+                  <label className="text-white/70 text-sm mb-2 block">Area of Interest *</label>
+                  <select
+                    required
+                    value={formData.areaOfInterest}
+                    onChange={(e) => setFormData({ ...formData, areaOfInterest: e.target.value })}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-purple-500 transition-colors"
+                  >
+                    <option value="" className="bg-gray-900">Select area of interest</option>
+                    {areasOfInterest.map((area) => (
+                      <option key={area} value={area} className="bg-gray-900">{area}</option>
+                    ))}
+                  </select>
                 </div>
 
                 <div>

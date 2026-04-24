@@ -1,56 +1,88 @@
-from fastapi import APIRouter, HTTPException, status
-from models import Testimonial, TestimonialCreate
-from typing import List
+"""
+Testimonials routes.
+
+Public endpoints:
+  GET  /api/testimonials       — list active testimonials
+
+Admin-only endpoints (require X-Admin-Key header):
+  POST /api/testimonials       — create a testimonial
+  GET  /api/testimonials/all   — list all testimonials including inactive
+"""
+
 import logging
-import os
-from motor.motor_asyncio import AsyncIOMotorClient
+from typing import List
+
+from fastapi import APIRouter, Depends, HTTPException, status
+
+from database import db
+from dependencies import require_admin_key
+from models import Testimonial, TestimonialCreate
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/testimonials", tags=["testimonials"])
 
-# Shared DB connection (env already loaded by server.py at startup)
-db = AsyncIOMotorClient(os.environ["MONGO_URL"])[os.environ.get("DB_NAME", "alfaglobal")]
-
 
 @router.get("", response_model=dict)
 async def get_testimonials():
-    """Get all active testimonials."""
+    """
+    Return all active (published) testimonials sorted by creation date descending.
+
+    Public endpoint — no authentication required.
+    """
     try:
-        testimonials = await db.testimonials.find({"active": True}).sort("createdAt", -1).to_list(100)
-        return {"success": True, "data": [Testimonial(**t).dict() for t in testimonials]}
+        testimonials = (
+            await db.testimonials.find({"active": True}).sort("createdAt", -1).to_list(100)
+        )
+        return {
+            "success": True,
+            "data": [Testimonial(**t).model_dump() for t in testimonials],
+        }
     except Exception as e:
-        logger.error(f"Error fetching testimonials: {e}")
+        logger.error("Error fetching testimonials: %s", e)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Failed to fetch testimonials",
         )
 
 
-@router.post("", response_model=Testimonial, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "",
+    response_model=Testimonial,
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(require_admin_key)],
+)
 async def create_testimonial(testimonial_data: TestimonialCreate):
-    """Create a new testimonial (admin use)."""
+    """
+    Create a new testimonial.
+
+    Admin-only: requires a valid X-Admin-Key header.
+    """
     try:
-        testimonial = Testimonial(**testimonial_data.dict())
-        await db.testimonials.insert_one(testimonial.dict())
-        logger.info(f"Testimonial created: {testimonial.id}")
+        testimonial = Testimonial(**testimonial_data.model_dump())
+        await db.testimonials.insert_one(testimonial.model_dump())
+        logger.info("Testimonial created: %s", testimonial.id)
         return testimonial
     except Exception as e:
-        logger.error(f"Error creating testimonial: {e}")
+        logger.error("Error creating testimonial: %s", e)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Failed to create testimonial",
         )
 
 
-@router.get("/all", response_model=List[Testimonial])
+@router.get("/all", response_model=List[Testimonial], dependencies=[Depends(require_admin_key)])
 async def get_all_testimonials():
-    """Get all testimonials including inactive (admin use)."""
+    """
+    Return all testimonials including inactive ones.
+
+    Admin-only: requires a valid X-Admin-Key header.
+    """
     try:
         testimonials = await db.testimonials.find().sort("createdAt", -1).to_list(1000)
         return [Testimonial(**t) for t in testimonials]
     except Exception as e:
-        logger.error(f"Error fetching all testimonials: {e}")
+        logger.error("Error fetching all testimonials: %s", e)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Failed to fetch testimonials",

@@ -1,94 +1,161 @@
-# Alfa Global Group — Production Deployment Guide
+# Alfa Global Group
 
-## Architecture
+Corporate website and API for Alfa Global Group — a diversified investment and business conglomerate based in Chennai, India.
 
-| Service | Technology | Port |
-|---------|-----------|------|
-| Backend | FastAPI + Uvicorn | `$PORT` (Railway-assigned) |
-| Frontend | React (CRA/Craco) → served by `serve` | `$PORT` (Railway-assigned) |
-| Database | MongoDB (Railway plugin or Atlas) | 27017 |
+**Stack:** React (CRA/Craco) · FastAPI · MongoDB · Nginx · Docker
 
 ---
 
-## 🚀 Deploying to Railway with Nixpacks
+## Project Structure
 
-Railway treats each service independently. You will create **two services** (backend + frontend) and one **MongoDB plugin**.
-
-### Step 1 — Create a New Railway Project
-
-1. Go to [railway.app](https://railway.app) → **New Project**.
-2. Choose **Deploy from GitHub repo** and select this repository.
-
----
-
-### Step 2 — Backend Service
-
-1. In your Railway project click **+ New Service → GitHub Repo**.
-2. Set **Root Directory** → `backend`
-3. Railway will auto-detect the `nixpacks.toml` and use it.
-4. Add the following **Environment Variables** in the Railway dashboard:
-
-| Variable | Value |
-|----------|-------|
-| `MONGO_URL` | Your MongoDB connection string (from Step 4) |
-| `DB_NAME` | `alfaglobal` |
-| `CORS_ORIGINS` | `https://<your-frontend>.up.railway.app` |
-| `RESEND_API_KEY` | Your Resend API key |
-
-5. Railway assigns `$PORT` automatically — the Nixpacks start command already uses it.
+```
+Alfa-Global-Final/
+├── backend/           # FastAPI application
+│   ├── server.py      # App entry point + middleware
+│   ├── database.py    # Shared MongoDB connection pool
+│   ├── limiter.py     # Shared SlowAPI rate-limiter
+│   ├── dependencies.py# Shared FastAPI dependencies (admin key auth)
+│   ├── models.py      # Pydantic data models
+│   ├── routes/        # Feature routers
+│   │   ├── contact.py
+│   │   ├── newsletter.py
+│   │   ├── testimonials.py
+│   │   └── insights.py
+│   └── requirements.txt
+├── frontend/          # React application
+│   └── src/
+├── Dockerfile         # Single-container build (nginx + uvicorn + supervisord)
+├── docker-compose.yml # Multi-container stack (MongoDB + backend + frontend)
+├── nginx.conf         # Nginx config for docker-compose setup
+└── nginx.single.conf  # Nginx config for single-container Dockerfile
+```
 
 ---
 
-### Step 3 — Frontend Service
+## Local Development
 
-1. Click **+ New Service → GitHub Repo** again (same repo).
-2. Set **Root Directory** → `frontend`
-3. Add the following **Environment Variables**:
-
-| Variable | Value |
-|----------|-------|
-| `REACT_APP_BACKEND_URL` | The Railway **public URL** of your backend service (e.g. `https://backend.up.railway.app`) |
-
-> ⚠️ `REACT_APP_BACKEND_URL` is a **build-time** variable. Set it before the first deploy or trigger a redeploy after setting it.
-
----
-
-### Step 4 — MongoDB
-
-**Option A: Railway MongoDB Plugin (easiest)**
-1. In your project → **+ New** → **Database → MongoDB**.
-2. Copy the `MONGO_PUBLIC_URL` value and paste it as `MONGO_URL` in the backend service.
-
-**Option B: MongoDB Atlas (production-recommended)**
-1. Create a free cluster at [mongodb.com/atlas](https://mongodb.com/atlas).
-2. Whitelist all IPs (`0.0.0.0/0`) or use Railway's outbound IPs.
-3. Paste the Atlas connection string as `MONGO_URL`.
-
----
-
-### Step 5 — Verify
-
-- Backend health check: `GET https://<backend>.up.railway.app/api/`
-- Frontend: visit `https://<frontend>.up.railway.app`
-
----
-
-## 🐳 Local Development (Docker Compose)
+### Option A — Docker Compose (recommended)
 
 ```bash
-# Copy and fill in environment variables
+# 1. Copy and fill in environment variables
 cp .env.example .env
 
-# Start all services
+# 2. Start the full stack
 docker-compose up --build
 ```
 
-- Frontend: http://localhost:80
-- Backend: http://localhost:8001
-- API docs: http://localhost:8001/docs
+| Service | URL |
+|---------|-----|
+| Frontend | http://localhost |
+| Backend API | http://localhost:8001/api/ |
 
 ---
 
-## Environment Variables Reference
+### Option B — Run services individually
 
-See [`.env.example`](.env.example) for a full list of required variables.
+**Backend**
+```bash
+cd backend
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+
+# Create a .env file (see Environment Variables below)
+uvicorn server:app --reload --port 8001
+```
+
+**Frontend**
+```bash
+cd frontend
+yarn install
+REACT_APP_BACKEND_URL=http://localhost:8001 yarn start
+```
+
+---
+
+## Environment Variables
+
+Copy `.env.example` to `.env` and fill in the values. In Dokploy / Railway, set these directly in the service dashboard.
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `MONGO_URL` | ✅ | MongoDB connection string |
+| `DB_NAME` | ✅ | Database name (default: `alfaglobal`) |
+| `CORS_ORIGINS` | ✅ (prod) | Comma-separated allowed origins, e.g. `https://yoursite.com` |
+| `ADMIN_API_KEY` | ✅ | Secret key for admin-only endpoints (GET contact/newsletter lists) |
+| `RESEND_API_KEY` | optional | Resend API key for email sending |
+| `ENABLE_DOCS` | optional | Set to `1` to enable Swagger UI at `/docs` |
+| `REACT_APP_BACKEND_URL` | ✅ (prod) | Public URL of the backend (build-time, frontend only) |
+
+> ⚠️ `REACT_APP_BACKEND_URL` is baked into the React bundle at build time. If your frontend and backend share a domain (e.g. via nginx reverse proxy), set it to an empty string — API calls will go to `/api/` on the same origin.
+
+---
+
+## Deployment
+
+### Dokploy — Single Container (Dockerfile builder)
+
+1. Create a new **Application** in Dokploy.
+2. Set **Build Type** → `Dockerfile`, **Dockerfile path** → `Dockerfile`.
+3. Set environment variables (see above).
+4. Deploy — exposes **port 80** with nginx serving the React app and proxying `/api/` to uvicorn.
+
+### Dokploy — Multi-Container (Docker Compose builder)
+
+1. Create a new **Docker Compose** application.
+2. Point at `docker-compose.yml` in the repo root.
+3. Set environment variables.
+4. Deploy — creates three containers: MongoDB, backend (port 8001), frontend/nginx (port 80).
+
+### Railway / Railpack / Nixpacks — Per-service
+
+Deploy backend and frontend as **two separate services**, each pointing to its subdirectory:
+
+| Service | Root Directory | Config files |
+|---------|---------------|--------------|
+| Backend | `backend/` | `railpack.json`, `nixpacks.toml`, `railway.json` |
+| Frontend | `frontend/` | `railpack.json`, `nixpacks.toml`, `railway.json` |
+
+Set `REACT_APP_BACKEND_URL` on the frontend service to the backend's public URL.
+Add a MongoDB plugin or use MongoDB Atlas for `MONGO_URL`.
+
+> ⚠️ **Do not use Railpack/Nixpacks pointing at the repo root.** These tools are single-language and cannot auto-detect a mixed Python+Node monorepo. Use the Dockerfile builder instead, or deploy the two services separately from their subdirectories.
+
+---
+
+## API Endpoints
+
+Base URL: `/api`
+
+### Public
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/api/` | Health check |
+| `POST` | `/api/contact` | Submit a contact form (rate-limited: 10/min) |
+| `POST` | `/api/newsletter` | Subscribe to newsletter (rate-limited: 10/min) |
+| `GET` | `/api/testimonials` | List active testimonials |
+| `GET` | `/api/insights` | List published insights |
+| `GET` | `/api/insights/{id}` | Get a single published insight |
+
+### Admin (requires `X-Admin-Key: <ADMIN_API_KEY>` header)
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/api/contact` | List all contact submissions |
+| `GET` | `/api/contact/{id}` | Get a single contact submission |
+| `GET` | `/api/newsletter` | List all newsletter subscriptions |
+| `POST` | `/api/testimonials` | Create a testimonial |
+| `GET` | `/api/testimonials/all` | List all testimonials (incl. inactive) |
+| `POST` | `/api/insights` | Create an insight |
+| `GET` | `/api/insights/all` | List all insights (incl. unpublished) |
+
+---
+
+## Security
+
+- **Rate limiting** — public POST endpoints are limited to 10 requests/minute per IP (slowapi).
+- **Admin endpoints** — all write and list endpoints require an `X-Admin-Key` header matching `ADMIN_API_KEY`.
+- **Security headers** — every response includes `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Strict-Transport-Security`, `Referrer-Policy`, and `Permissions-Policy`.
+- **CORS** — wildcard `*` is only permitted when `CORS_ORIGINS` is not set (local dev). Production deployments must set explicit origins.
+- **API docs** — Swagger UI is disabled by default. Set `ENABLE_DOCS=1` to enable during development.

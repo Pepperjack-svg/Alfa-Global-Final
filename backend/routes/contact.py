@@ -1,55 +1,80 @@
-from fastapi import APIRouter, HTTPException, status
-from models import Contact, ContactCreate
-from typing import List
+"""
+Contact form routes.
+
+Public endpoints:
+  POST /api/contact   — submit a contact form (rate-limited: 10/minute per IP)
+
+Admin-only endpoints (require X-Admin-Key header):
+  GET  /api/contact         — list all submissions
+  GET  /api/contact/{id}    — retrieve a single submission
+"""
+
 import logging
-import os
-from motor.motor_asyncio import AsyncIOMotorClient
+from typing import List
+
+from fastapi import APIRouter, Depends, HTTPException, Request, status
+
+from database import db
+from dependencies import require_admin_key
+from limiter import limiter
+from models import Contact, ContactCreate
 
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/contact", tags=["contact"])
 
-# Shared DB connection (env already loaded by server.py at startup)
-db = AsyncIOMotorClient(os.environ["MONGO_URL"])[os.environ.get("DB_NAME", "alfaglobal")]
-
 
 @router.post("", response_model=dict, status_code=status.HTTP_201_CREATED)
-async def create_contact(contact_data: ContactCreate):
-    """Create a new contact form submission."""
+@limiter.limit("10/minute")
+async def create_contact(request: Request, contact_data: ContactCreate):
+    """
+    Submit a contact form enquiry.
+
+    Rate-limited to 10 submissions per minute per IP address to prevent
+    spam and abuse (ISO 27001 A.12.6 — protection against technical vulnerabilities).
+    """
     try:
-        contact = Contact(**contact_data.dict())
-        await db.contacts.insert_one(contact.dict())
-        logger.info(f"Contact created: {contact.id}")
+        contact = Contact(**contact_data.model_dump())
+        await db.contacts.insert_one(contact.model_dump())
+        logger.info("Contact created: %s", contact.id)
         return {
             "success": True,
             "message": "Thank you for your message! Our team will contact you shortly.",
             "id": contact.id,
         }
     except Exception as e:
-        logger.error(f"Error creating contact: {e}")
+        logger.error("Error creating contact: %s", e)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Failed to submit contact form. Please try again later.",
         )
 
 
-@router.get("", response_model=List[Contact])
+@router.get("", response_model=List[Contact], dependencies=[Depends(require_admin_key)])
 async def get_contacts():
-    """Get all contact form submissions (admin use)."""
+    """
+    List all contact form submissions.
+
+    Admin-only: requires a valid X-Admin-Key header.
+    """
     try:
         contacts = await db.contacts.find().sort("createdAt", -1).to_list(1000)
         return [Contact(**c) for c in contacts]
     except Exception as e:
-        logger.error(f"Error fetching contacts: {e}")
+        logger.error("Error fetching contacts: %s", e)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Failed to fetch contacts",
         )
 
 
-@router.get("/{contact_id}", response_model=Contact)
+@router.get("/{contact_id}", response_model=Contact, dependencies=[Depends(require_admin_key)])
 async def get_contact(contact_id: str):
-    """Get a specific contact by ID."""
+    """
+    Retrieve a single contact submission by ID.
+
+    Admin-only: requires a valid X-Admin-Key header.
+    """
     try:
         contact = await db.contacts.find_one({"id": contact_id})
         if not contact:
@@ -58,7 +83,7 @@ async def get_contact(contact_id: str):
     except HTTPException:
         raise
     except Exception as e:
-        logger.error(f"Error fetching contact: {e}")
+        logger.error("Error fetching contact: %s", e)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Failed to fetch contact",

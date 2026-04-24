@@ -21,6 +21,7 @@ import DhanveirGroupsShippingPage from './pages/DhanveirGroupsShippingPage';
 import PrivacyPage from './pages/PrivacyPage';
 import TermsPage from './pages/TermsPage';
 import TeamPage from './pages/TeamPage';
+import FAQsPage from './pages/FAQsPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -56,6 +57,7 @@ function App() {
             <Route path="/privacy" element={<PrivacyPage theme={theme} />} />
             <Route path="/terms" element={<TermsPage theme={theme} />} />
             <Route path="/team" element={<TeamPage theme={theme} />} />
+            <Route path="/faqs" element={<FAQsPage theme={theme} />} />
           </Routes>
         </main>
         <UltraFooter theme={theme} />
