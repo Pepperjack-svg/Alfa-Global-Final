@@ -36,10 +36,27 @@ const UltraHome = ({ theme = 'teal' }) => {
     { name: 'USD/INR', value: 'Loading...', change: '...', up: true }
   ]);
 
-  // Fetch Live Market Data
+  // Fetch Live Market Data with dual-proxy fallback
   useEffect(() => {
     let isMounted = true;
-    
+
+    const proxies = [
+      (url) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
+      (url) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+    ];
+
+    const fetchWithFallback = async (targetUrl) => {
+      for (const proxy of proxies) {
+        try {
+          const res = await fetch(proxy(targetUrl));
+          if (res.ok) return res;
+        } catch {
+          continue;
+        }
+      }
+      return null;
+    };
+
     const fetchMarketData = async () => {
       try {
         const symbols = {
@@ -50,19 +67,26 @@ const UltraHome = ({ theme = 'teal' }) => {
         };
 
         const resultsMap = {};
+
         for (const [name, symbol] of Object.entries(symbols)) {
-          const fetchUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`)}`;
-          
-          const res = await fetch(fetchUrl);
-          if (!res.ok) throw new Error('Network response was not ok');
+          const res = await fetchWithFallback(
+            `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`
+          );
+
+          if (!res) continue;
+
           const parsedData = await res.json();
-          
-          if (parsedData.chart && parsedData.chart.result && parsedData.chart.result.length > 0) {
+
+          if (
+            parsedData.chart &&
+            parsedData.chart.result &&
+            parsedData.chart.result.length > 0
+          ) {
             const result = parsedData.chart.result[0];
             const currentPrice = result.meta.regularMarketPrice;
             const previousClose = result.meta.chartPreviousClose;
             const changePercent = ((currentPrice - previousClose) / previousClose) * 100;
-            
+
             resultsMap[name] = {
               currentPrice,
               changePercent,
@@ -73,14 +97,13 @@ const UltraHome = ({ theme = 'teal' }) => {
 
         if (!isMounted) return;
 
-        // Fallback checks just in case some symbols failed to parse
         if (Object.keys(resultsMap).length === 4) {
           const usdInr = resultsMap['USD/INR'].currentPrice;
           const goldUsd = resultsMap['GOLD'].currentPrice;
-          // Calculate 10g Gold in INR (1 Troy Oz = 31.103 grams)
+          // Calculate 10g Gold in INR (1 Troy Oz = 31.1034768 grams)
           // Multiply by 1.15 to approximate Indian physical market premium/taxes
-          const goldInrAdjusted = (goldUsd / 31.1034768) * 10 * usdInr * 1.15; 
-          
+          const goldInrAdjusted = (goldUsd / 31.1034768) * 10 * usdInr * 1.15;
+
           const finalData = [
             {
               name: 'SENSEX',
@@ -108,6 +131,9 @@ const UltraHome = ({ theme = 'teal' }) => {
             }
           ];
           setMarketData(finalData);
+        } else {
+          // Partial results — set whatever loaded, keep static for missing
+          throw new Error('Incomplete data');
         }
       } catch (error) {
         console.error("Failed to fetch live market data:", error);
@@ -126,14 +152,12 @@ const UltraHome = ({ theme = 'teal' }) => {
     fetchMarketData();
     // Refresh every 60 seconds
     const intervalId = setInterval(fetchMarketData, 60000);
-    
+
     return () => {
       isMounted = false;
       clearInterval(intervalId);
     };
   }, []);
-
-  // Client logos removed as per request
 
   // Services from reference site - exact content
   const services = [
@@ -187,7 +211,7 @@ const UltraHome = ({ theme = 'teal' }) => {
       {/* Scroll Progress */}
       <motion.div className={`fixed top-0 left-0 right-0 h-1 ${t.accentBg} origin-left z-[100]`} style={{ scaleX }} />
 
-      {/* HERO SECTION - Content from reference site */}
+      {/* HERO SECTION */}
       <section ref={heroRef} className={`relative min-h-screen flex items-center bg-gradient-to-br ${t.heroBg} overflow-hidden`}>
         {/* Background */}
         <div className="absolute inset-0">
@@ -208,12 +232,10 @@ const UltraHome = ({ theme = 'teal' }) => {
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 pt-32 sm:pt-40 pb-20">
             <div className="max-w-4xl">
               <div>
-                {/* Logo from reference */}
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-4 mb-6">
                   <img src="/alfa-hero-logo.png" alt="Alfa Global" className="h-20 sm:h-24 w-auto" />
                 </motion.div>
 
-                {/* Main Headline - from reference */}
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -225,18 +247,16 @@ const UltraHome = ({ theme = 'teal' }) => {
                   <span className={t.heroAccent}>Building Futures.</span>
                 </motion.h1>
 
-                {/* Description - exact from reference */}
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="text-lg sm:text-xl text-white/60 mb-10 max-w-xl leading-relaxed"
                 >
-                  Alfa Global Group is a diversified global organization committed to creating enduring value across industries and generations. 
+                  Alfa Global Group is a diversified global organization committed to creating enduring value across industries and generations.
                   We invest in transformative ideas, strategic ventures, and high impact projects that shape the future of capital, business, and society.
                 </motion.p>
 
-                {/* CTA */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -280,7 +300,7 @@ const UltraHome = ({ theme = 'teal' }) => {
         </div>
       </div>
 
-      {/* ABOUT SECTION - Content from reference */}
+      {/* ABOUT SECTION */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -288,22 +308,22 @@ const UltraHome = ({ theme = 'teal' }) => {
               <span className={`${t.accentText} text-sm font-semibold tracking-widest uppercase`}>Group Overview</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-3 mb-6">Who We Are</h2>
               <p className="text-gray-600 mb-6 leading-relaxed text-justify">
-                Alfa Global Group is a diversified global organization driven by vision, innovation, and impact. We invest in ideas, businesses, 
-                and projects that shape industries, empower legacies, and create sustainable value across generations. Our strength lies in combining 
+                Alfa Global Group is a diversified global organization driven by vision, innovation, and impact. We invest in ideas, businesses,
+                and projects that shape industries, empower legacies, and create sustainable value across generations. Our strength lies in combining
                 capital markets expertise with entrepreneurial execution to build opportunities that go beyond conventional boundaries.
               </p>
               <span className={`${t.accentText} text-sm font-semibold tracking-widest uppercase`}>Our Purpose</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-3 mb-6">Why We Exist</h2>
               <p className="text-gray-600 mb-6 leading-relaxed text-justify">
-                We believe wealth is not just financial capital, it is the ability to create, transform, and leave behind something meaningful. 
-                Alfa Global Group exists to channel resources, knowledge, and strategy into ventures that redefine growth, spark innovation, 
+                We believe wealth is not just financial capital, it is the ability to create, transform, and leave behind something meaningful.
+                Alfa Global Group exists to channel resources, knowledge, and strategy into ventures that redefine growth, spark innovation,
                 and contribute to a better future for our clients, partners, and communities.
               </p>
               <Link to="/about" className={`inline-flex items-center gap-2 ${t.accentText} font-semibold hover:gap-3 transition-all`}>
                 Learn More <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
               </Link>
             </motion.div>
-            
+
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <img src="https://static.prod-images.emergentagent.com/jobs/9d0cdaeb-5a99-4d15-9a0a-459e9e0b885c/images/20327903923c4ebb76f605080941a3f9bafcd9f5abd68bc14b148bbf168c8646.png" alt="Financial Advisory" className="rounded-2xl shadow-2xl w-full" />
             </motion.div>
@@ -311,7 +331,7 @@ const UltraHome = ({ theme = 'teal' }) => {
         </div>
       </section>
 
-      {/* SERVICES - with icons from reference */}
+      {/* SERVICES */}
       <section className={`py-16 sm:py-24 ${t.accentBgLight}`}>
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
@@ -329,7 +349,9 @@ const UltraHome = ({ theme = 'teal' }) => {
                   viewport={{ once: true }}
                   onClick={() => setActiveService(i)}
                   className={`p-6 rounded-xl cursor-pointer transition-all ${
-                    activeService === i ? `bg-white shadow-lg border-l-4 ${theme === 'gold' ? 'border-amber-500' : theme === 'silver' ? 'border-gray-500' : theme === 'purple' ? 'border-purple-500' : 'border-teal-500'}` : 'bg-white/50 hover:bg-white border-l-4 border-transparent'
+                    activeService === i
+                      ? `bg-white shadow-lg border-l-4 ${theme === 'gold' ? 'border-amber-500' : theme === 'silver' ? 'border-gray-500' : theme === 'purple' ? 'border-purple-500' : 'border-teal-500'}`
+                      : 'bg-white/50 hover:bg-white border-l-4 border-transparent'
                   }`}
                 >
                   <div className="flex items-start gap-4">
