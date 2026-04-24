@@ -28,13 +28,110 @@ const UltraHome = ({ theme = 'teal' }) => {
     checkColor: 'text-teal-500', glowColor: 'rgba(45, 212, 191, 0.1)'
   };
 
-  // Market indices
-  const marketData = [
-    { name: 'SENSEX', value: '72,568.45', change: '+0.85%', up: true },
-    { name: 'NIFTY 50', value: '22,045.30', change: '+0.72%', up: true },
-    { name: 'GOLD', value: '₹62,450', change: '-0.12%', up: false },
-    { name: 'USD/INR', value: '83.12', change: '+0.05%', up: true }
-  ];
+  // Market indices state
+  const [marketData, setMarketData] = useState([
+    { name: 'SENSEX', value: 'Loading...', change: '...', up: true },
+    { name: 'NIFTY 50', value: 'Loading...', change: '...', up: true },
+    { name: 'GOLD', value: 'Loading...', change: '...', up: true },
+    { name: 'USD/INR', value: 'Loading...', change: '...', up: true }
+  ]);
+
+  // Fetch Live Market Data
+  useEffect(() => {
+    let isMounted = true;
+    
+    const fetchMarketData = async () => {
+      try {
+        const symbols = {
+          'SENSEX': '^BSESN',
+          'NIFTY 50': '^NSEI',
+          'GOLD': 'GC=F',
+          'USD/INR': 'INR=X'
+        };
+
+        const resultsMap = {};
+        for (const [name, symbol] of Object.entries(symbols)) {
+          const url = encodeURIComponent(`https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`);
+          // Using api.cors.lol as a CORS proxy since allorigins is failing and we don't have a backend proxy
+          const res = await fetch(`https://api.cors.lol/?url=${url}`);
+          if (!res.ok) throw new Error('Network response was not ok');
+          const parsedData = await res.json();
+          
+          if (parsedData.chart && parsedData.chart.result && parsedData.chart.result.length > 0) {
+            const result = parsedData.chart.result[0];
+            const currentPrice = result.meta.regularMarketPrice;
+            const previousClose = result.meta.chartPreviousClose;
+            const changePercent = ((currentPrice - previousClose) / previousClose) * 100;
+            
+            resultsMap[name] = {
+              currentPrice,
+              changePercent,
+              up: changePercent >= 0
+            };
+          }
+        }
+
+        if (!isMounted) return;
+
+        // Fallback checks just in case some symbols failed to parse
+        if (Object.keys(resultsMap).length === 4) {
+          const usdInr = resultsMap['USD/INR'].currentPrice;
+          const goldUsd = resultsMap['GOLD'].currentPrice;
+          // Calculate 10g Gold in INR (1 Troy Oz = 31.103 grams)
+          // Multiply by 1.15 to approximate Indian physical market premium/taxes
+          const goldInrAdjusted = (goldUsd / 31.1034768) * 10 * usdInr * 1.15; 
+          
+          const finalData = [
+            {
+              name: 'SENSEX',
+              value: resultsMap['SENSEX'].currentPrice.toLocaleString('en-IN', { maximumFractionDigits: 2 }),
+              change: `${resultsMap['SENSEX'].up ? '+' : ''}${resultsMap['SENSEX'].changePercent.toFixed(2)}%`,
+              up: resultsMap['SENSEX'].up
+            },
+            {
+              name: 'NIFTY 50',
+              value: resultsMap['NIFTY 50'].currentPrice.toLocaleString('en-IN', { maximumFractionDigits: 2 }),
+              change: `${resultsMap['NIFTY 50'].up ? '+' : ''}${resultsMap['NIFTY 50'].changePercent.toFixed(2)}%`,
+              up: resultsMap['NIFTY 50'].up
+            },
+            {
+              name: 'GOLD',
+              value: '₹' + goldInrAdjusted.toLocaleString('en-IN', { maximumFractionDigits: 0 }),
+              change: `${resultsMap['GOLD'].up ? '+' : ''}${resultsMap['GOLD'].changePercent.toFixed(2)}%`,
+              up: resultsMap['GOLD'].up
+            },
+            {
+              name: 'USD/INR',
+              value: resultsMap['USD/INR'].currentPrice.toFixed(2),
+              change: `${resultsMap['USD/INR'].up ? '+' : ''}${resultsMap['USD/INR'].changePercent.toFixed(2)}%`,
+              up: resultsMap['USD/INR'].up
+            }
+          ];
+          setMarketData(finalData);
+        }
+      } catch (error) {
+        console.error("Failed to fetch live market data:", error);
+        // Fallback to static mock data if fetch fails
+        if (isMounted) {
+          setMarketData([
+            { name: 'SENSEX', value: '72,568.45', change: '+0.85%', up: true },
+            { name: 'NIFTY 50', value: '22,045.30', change: '+0.72%', up: true },
+            { name: 'GOLD', value: '₹62,450', change: '-0.12%', up: false },
+            { name: 'USD/INR', value: '83.12', change: '+0.05%', up: true }
+          ]);
+        }
+      }
+    };
+
+    fetchMarketData();
+    // Refresh every 60 seconds
+    const intervalId = setInterval(fetchMarketData, 60000);
+    
+    return () => {
+      isMounted = false;
+      clearInterval(intervalId);
+    };
+  }, []);
 
   // Client logos removed as per request
 

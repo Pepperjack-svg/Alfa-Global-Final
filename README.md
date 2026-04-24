@@ -1,161 +1,70 @@
-# Alfa Global Group
+# Getting Started with Create React App
 
-Corporate website and API for Alfa Global Group — a diversified investment and business conglomerate based in Chennai, India.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-**Stack:** React (CRA/Craco) · FastAPI · MongoDB · Nginx · Docker
+## Available Scripts
 
----
+In the project directory, you can run:
 
-## Project Structure
+### `npm start`
 
-```
-Alfa-Global-Final/
-├── backend/           # FastAPI application
-│   ├── server.py      # App entry point + middleware
-│   ├── database.py    # Shared MongoDB connection pool
-│   ├── limiter.py     # Shared SlowAPI rate-limiter
-│   ├── dependencies.py# Shared FastAPI dependencies (admin key auth)
-│   ├── models.py      # Pydantic data models
-│   ├── routes/        # Feature routers
-│   │   ├── contact.py
-│   │   ├── newsletter.py
-│   │   ├── testimonials.py
-│   │   └── insights.py
-│   └── requirements.txt
-├── frontend/          # React application
-│   └── src/
-├── Dockerfile         # Single-container build (nginx + uvicorn + supervisord)
-├── docker-compose.yml # Multi-container stack (MongoDB + backend + frontend)
-├── nginx.conf         # Nginx config for docker-compose setup
-└── nginx.single.conf  # Nginx config for single-container Dockerfile
-```
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
----
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## Local Development
+### `npm test`
 
-### Option A — Docker Compose (recommended)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-```bash
-# 1. Copy and fill in environment variables
-cp .env.example .env
+### `npm run build`
 
-# 2. Start the full stack
-docker-compose up --build
-```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-| Service | URL |
-|---------|-----|
-| Frontend | http://localhost |
-| Backend API | http://localhost:8001/api/ |
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
----
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Option B — Run services individually
+### `npm run eject`
 
-**Backend**
-```bash
-cd backend
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-# Create a .env file (see Environment Variables below)
-uvicorn server:app --reload --port 8001
-```
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-**Frontend**
-```bash
-cd frontend
-yarn install
-REACT_APP_BACKEND_URL=http://localhost:8001 yarn start
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
----
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Environment Variables
+## Learn More
 
-Copy `.env.example` to `.env` and fill in the values. In Dokploy / Railway, set these directly in the service dashboard.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `MONGO_URL` | ✅ | MongoDB connection string |
-| `DB_NAME` | ✅ | Database name (default: `alfaglobal`) |
-| `CORS_ORIGINS` | ✅ (prod) | Comma-separated allowed origins, e.g. `https://yoursite.com` |
-| `ADMIN_API_KEY` | ✅ | Secret key for admin-only endpoints (GET contact/newsletter lists) |
-| `RESEND_API_KEY` | optional | Resend API key for email sending |
-| `ENABLE_DOCS` | optional | Set to `1` to enable Swagger UI at `/docs` |
-| `REACT_APP_BACKEND_URL` | ✅ (prod) | Public URL of the backend (build-time, frontend only) |
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-> ⚠️ `REACT_APP_BACKEND_URL` is baked into the React bundle at build time. If your frontend and backend share a domain (e.g. via nginx reverse proxy), set it to an empty string — API calls will go to `/api/` on the same origin.
+### Code Splitting
 
----
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-## Deployment
+### Analyzing the Bundle Size
 
-### Dokploy — Single Container (Dockerfile builder)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-1. Create a new **Application** in Dokploy.
-2. Set **Build Type** → `Dockerfile`, **Dockerfile path** → `Dockerfile`.
-3. Set environment variables (see above).
-4. Deploy — exposes **port 80** with nginx serving the React app and proxying `/api/` to uvicorn.
+### Making a Progressive Web App
 
-### Dokploy — Multi-Container (Docker Compose builder)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-1. Create a new **Docker Compose** application.
-2. Point at `docker-compose.yml` in the repo root.
-3. Set environment variables.
-4. Deploy — creates three containers: MongoDB, backend (port 8001), frontend/nginx (port 80).
+### Advanced Configuration
 
-### Railway / Railpack / Nixpacks — Per-service
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-Deploy backend and frontend as **two separate services**, each pointing to its subdirectory:
+### Deployment
 
-| Service | Root Directory | Config files |
-|---------|---------------|--------------|
-| Backend | `backend/` | `railpack.json`, `nixpacks.toml`, `railway.json` |
-| Frontend | `frontend/` | `railpack.json`, `nixpacks.toml`, `railway.json` |
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-Set `REACT_APP_BACKEND_URL` on the frontend service to the backend's public URL.
-Add a MongoDB plugin or use MongoDB Atlas for `MONGO_URL`.
+### `npm run build` fails to minify
 
-> ⚠️ **Do not use Railpack/Nixpacks pointing at the repo root.** These tools are single-language and cannot auto-detect a mixed Python+Node monorepo. Use the Dockerfile builder instead, or deploy the two services separately from their subdirectories.
-
----
-
-## API Endpoints
-
-Base URL: `/api`
-
-### Public
-
-| Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/api/` | Health check |
-| `POST` | `/api/contact` | Submit a contact form (rate-limited: 10/min) |
-| `POST` | `/api/newsletter` | Subscribe to newsletter (rate-limited: 10/min) |
-| `GET` | `/api/testimonials` | List active testimonials |
-| `GET` | `/api/insights` | List published insights |
-| `GET` | `/api/insights/{id}` | Get a single published insight |
-
-### Admin (requires `X-Admin-Key: <ADMIN_API_KEY>` header)
-
-| Method | Path | Description |
-|--------|------|-------------|
-| `GET` | `/api/contact` | List all contact submissions |
-| `GET` | `/api/contact/{id}` | Get a single contact submission |
-| `GET` | `/api/newsletter` | List all newsletter subscriptions |
-| `POST` | `/api/testimonials` | Create a testimonial |
-| `GET` | `/api/testimonials/all` | List all testimonials (incl. inactive) |
-| `POST` | `/api/insights` | Create an insight |
-| `GET` | `/api/insights/all` | List all insights (incl. unpublished) |
-
----
-
-## Security
-
-- **Rate limiting** — public POST endpoints are limited to 10 requests/minute per IP (slowapi).
-- **Admin endpoints** — all write and list endpoints require an `X-Admin-Key` header matching `ADMIN_API_KEY`.
-- **Security headers** — every response includes `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Strict-Transport-Security`, `Referrer-Policy`, and `Permissions-Policy`.
-- **CORS** — wildcard `*` is only permitted when `CORS_ORIGINS` is not set (local dev). Production deployments must set explicit origins.
-- **API docs** — Swagger UI is disabled by default. Set `ENABLE_DOCS=1` to enable during development.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
