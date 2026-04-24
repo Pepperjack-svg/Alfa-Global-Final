@@ -51,9 +51,9 @@ const UltraHome = ({ theme = 'teal' }) => {
 
         const resultsMap = {};
         for (const [name, symbol] of Object.entries(symbols)) {
-          const url = encodeURIComponent(`https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`);
-          // Using api.cors.lol as a CORS proxy since allorigins is failing and we don't have a backend proxy
-          const res = await fetch(`https://api.cors.lol/?url=${url}`);
+          const fetchUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://query1.finance.yahoo.com/v8/finance/chart/${symbol}`)}`;
+          
+          const res = await fetch(fetchUrl);
           if (!res.ok) throw new Error('Network response was not ok');
           const parsedData = await res.json();
           
