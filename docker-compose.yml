@@ -1,6 +1,12 @@
 version: "3.8"
 
+# =============================================================================
+# Alfa Global Group — Docker Compose Stack
+# For Dokploy: use "Docker Compose" build type and set env vars in the UI.
+# =============================================================================
+
 services:
+
   mongodb:
     image: mongo:7
     container_name: alfaglobal-mongo
@@ -9,6 +15,11 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   backend:
     build:
@@ -19,17 +30,20 @@ services:
     ports:
       - "8001:8001"
     environment:
-      - MONGO_URL=mongodb://mongodb:27017
-      - DB_NAME=alfaglobal
+      - MONGO_URL=${MONGO_URL:-mongodb://mongodb:27017}
+      - DB_NAME=${DB_NAME:-alfaglobal}
+      - CORS_ORIGINS=${CORS_ORIGINS:-*}
+      - RESEND_API_KEY=${RESEND_API_KEY:-}
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_healthy
 
   frontend:
     build:
       context: .
       dockerfile: Dockerfile.frontend
       args:
-        REACT_APP_BACKEND_URL: ${REACT_APP_BACKEND_URL:-http://localhost}
+        REACT_APP_BACKEND_URL: ${REACT_APP_BACKEND_URL:-}
     container_name: alfaglobal-frontend
     restart: unless-stopped
     ports:
